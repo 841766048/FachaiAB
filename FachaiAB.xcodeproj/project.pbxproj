@@ -1,0 +1,764 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		659C66772B0D020A00074930 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66762B0D020A00074930 /* ViewController.swift */; };
+		659C667A2B0D020A00074930 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 659C66782B0D020A00074930 /* Main.storyboard */; };
+		659C667C2B0D020B00074930 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 659C667B2B0D020B00074930 /* Assets.xcassets */; };
+		659C667F2B0D020B00074930 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 659C667D2B0D020B00074930 /* LaunchScreen.storyboard */; };
+		659C66B12B0D024200074930 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66872B0D024200074930 /* LocalStorage.swift */; };
+		659C66B22B0D024200074930 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66882B0D024200074930 /* LocationManager.swift */; };
+		659C66B32B0D024200074930 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C668A2B0D024200074930 /* Toast.swift */; };
+		659C66B42B0D024200074930 /* MineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C668D2B0D024200074930 /* MineVC.swift */; };
+		659C66B52B0D024200074930 /* PersonalInforVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C668E2B0D024200074930 /* PersonalInforVC.swift */; };
+		659C66B62B0D024200074930 /* DataResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66902B0D024200074930 /* DataResultView.swift */; };
+		659C66B72B0D024200074930 /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66912B0D024200074930 /* TitleValueView.swift */; };
+		659C66B82B0D024200074930 /* SetUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66922B0D024200074930 /* SetUpVC.swift */; };
+		659C66B92B0D024200074930 /* LeaderboardManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66942B0D024200074930 /* LeaderboardManagerVC.swift */; };
+		659C66BA2B0D024200074930 /* MoreShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66972B0D024200074930 /* MoreShowView.swift */; };
+		659C66BB2B0D024200074930 /* FachaiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66982B0D024200074930 /* FachaiVC.swift */; };
+		659C66BC2B0D024200074930 /* FachaiDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66992B0D024200074930 /* FachaiDetailsVC.swift */; };
+		659C66BD2B0D024200074930 /* FachaiDetailsContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C669A2B0D024200074930 /* FachaiDetailsContentVC.swift */; };
+		659C66BE2B0D024200074930 /* LenchaiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C669C2B0D024200074930 /* LenchaiVC.swift */; };
+		659C66BF2B0D024200074930 /* UnlockLenchaiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C669D2B0D024200074930 /* UnlockLenchaiVC.swift */; };
+		659C66C02B0D024200074930 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C669F2B0D024200074930 /* LoginVC.swift */; };
+		659C66C12B0D024200074930 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66A12B0D024200074930 /* BaseTabBarController.swift */; };
+		659C66C22B0D024200074930 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66A22B0D024200074930 /* BaseViewController.swift */; };
+		659C66C32B0D024200074930 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66A32B0D024200074930 /* BaseNavigationController.swift */; };
+		659C66C42B0D024200074930 /* PolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66A52B0D024200074930 /* PolicyVC.swift */; };
+		659C66C52B0D024200074930 /* PrivacyPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66A62B0D024200074930 /* PrivacyPolicyVC.swift */; };
+		659C66C62B0D024200074930 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66A82B0D024200074930 /* UIColor+Extension.swift */; };
+		659C66C72B0D024200074930 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66A92B0D024200074930 /* UIButton+Extension.swift */; };
+		659C66C82B0D024200074930 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66AA2B0D024200074930 /* NSObject+Extension.swift */; };
+		659C66C92B0D024200074930 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66AB2B0D024200074930 /* UIView+Extension.swift */; };
+		659C66CA2B0D024200074930 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66AC2B0D024200074930 /* Tool.swift */; };
+		659C66CB2B0D024200074930 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66AE2B0D024200074930 /* AppDelegate.swift */; };
+		659C66CC2B0D024200074930 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66B02B0D024200074930 /* Network.swift */; };
+		B6F82F2E8646D5F49003A14F /* libPods-FachaiAB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7075D30AAD4E03B10736A9A /* libPods-FachaiAB.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		659C666F2B0D020A00074930 /* FachaiAB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FachaiAB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		659C66762B0D020A00074930 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		659C66792B0D020A00074930 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		659C667B2B0D020B00074930 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		659C667E2B0D020B00074930 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		659C66802B0D020B00074930 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		659C66872B0D024200074930 /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		659C66882B0D024200074930 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		659C66892B0D024200074930 /* FachaiAB-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FachaiAB-Bridging-Header.h"; sourceTree = "<group>"; };
+		659C668A2B0D024200074930 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		659C668D2B0D024200074930 /* MineVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineVC.swift; sourceTree = "<group>"; };
+		659C668E2B0D024200074930 /* PersonalInforVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInforVC.swift; sourceTree = "<group>"; };
+		659C66902B0D024200074930 /* DataResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataResultView.swift; sourceTree = "<group>"; };
+		659C66912B0D024200074930 /* TitleValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleValueView.swift; sourceTree = "<group>"; };
+		659C66922B0D024200074930 /* SetUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetUpVC.swift; sourceTree = "<group>"; };
+		659C66942B0D024200074930 /* LeaderboardManagerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardManagerVC.swift; sourceTree = "<group>"; };
+		659C66972B0D024200074930 /* MoreShowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreShowView.swift; sourceTree = "<group>"; };
+		659C66982B0D024200074930 /* FachaiVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FachaiVC.swift; sourceTree = "<group>"; };
+		659C66992B0D024200074930 /* FachaiDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FachaiDetailsVC.swift; sourceTree = "<group>"; };
+		659C669A2B0D024200074930 /* FachaiDetailsContentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FachaiDetailsContentVC.swift; sourceTree = "<group>"; };
+		659C669C2B0D024200074930 /* LenchaiVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LenchaiVC.swift; sourceTree = "<group>"; };
+		659C669D2B0D024200074930 /* UnlockLenchaiVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockLenchaiVC.swift; sourceTree = "<group>"; };
+		659C669F2B0D024200074930 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		659C66A12B0D024200074930 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		659C66A22B0D024200074930 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		659C66A32B0D024200074930 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		659C66A52B0D024200074930 /* PolicyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolicyVC.swift; sourceTree = "<group>"; };
+		659C66A62B0D024200074930 /* PrivacyPolicyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyVC.swift; sourceTree = "<group>"; };
+		659C66A82B0D024200074930 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		659C66A92B0D024200074930 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		659C66AA2B0D024200074930 /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		659C66AB2B0D024200074930 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		659C66AC2B0D024200074930 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
+		659C66AE2B0D024200074930 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../../私活合同项目/FachaiAB/FachaiAB/AppDelegate.swift"; sourceTree = "<group>"; };
+		659C66B02B0D024200074930 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		6FC6982E6BC11B335FDC5E9F /* Pods-FachaiAB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FachaiAB.debug.xcconfig"; path = "Target Support Files/Pods-FachaiAB/Pods-FachaiAB.debug.xcconfig"; sourceTree = "<group>"; };
+		B7A461723955310531E9D37E /* Pods-FachaiAB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FachaiAB.release.xcconfig"; path = "Target Support Files/Pods-FachaiAB/Pods-FachaiAB.release.xcconfig"; sourceTree = "<group>"; };
+		E7075D30AAD4E03B10736A9A /* libPods-FachaiAB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FachaiAB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		659C666C2B0D020A00074930 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6F82F2E8646D5F49003A14F /* libPods-FachaiAB.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0613353EAB195869C6607CA2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7075D30AAD4E03B10736A9A /* libPods-FachaiAB.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		272CAB4C787DD37662B282B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6FC6982E6BC11B335FDC5E9F /* Pods-FachaiAB.debug.xcconfig */,
+				B7A461723955310531E9D37E /* Pods-FachaiAB.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		659C66662B0D020A00074930 = {
+			isa = PBXGroup;
+			children = (
+				659C66712B0D020A00074930 /* FachaiAB */,
+				659C66702B0D020A00074930 /* Products */,
+				272CAB4C787DD37662B282B7 /* Pods */,
+				0613353EAB195869C6607CA2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		659C66702B0D020A00074930 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				659C666F2B0D020A00074930 /* FachaiAB.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		659C66712B0D020A00074930 /* FachaiAB */ = {
+			isa = PBXGroup;
+			children = (
+				659C66AE2B0D024200074930 /* AppDelegate.swift */,
+				659C668B2B0D024200074930 /* Class */,
+				659C66A72B0D024200074930 /* Extension */,
+				659C66AF2B0D024200074930 /* Network */,
+				659C66AD2B0D024200074930 /* PopUp */,
+				659C66862B0D024200074930 /* Tool */,
+				659C66762B0D020A00074930 /* ViewController.swift */,
+				659C66782B0D020A00074930 /* Main.storyboard */,
+				659C667B2B0D020B00074930 /* Assets.xcassets */,
+				659C667D2B0D020B00074930 /* LaunchScreen.storyboard */,
+				659C66802B0D020B00074930 /* Info.plist */,
+			);
+			path = FachaiAB;
+			sourceTree = "<group>";
+		};
+		659C66862B0D024200074930 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				659C66872B0D024200074930 /* LocalStorage.swift */,
+				659C66882B0D024200074930 /* LocationManager.swift */,
+				659C66892B0D024200074930 /* FachaiAB-Bridging-Header.h */,
+				659C668A2B0D024200074930 /* Toast.swift */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		659C668B2B0D024200074930 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				659C668C2B0D024200074930 /* 我的 */,
+				659C66932B0D024200074930 /* 榜单 */,
+				659C66952B0D024200074930 /* 脸猜 */,
+				659C669B2B0D024200074930 /* 连猜 */,
+				659C669E2B0D024200074930 /* Login */,
+				659C66A02B0D024200074930 /* Base */,
+				659C66A42B0D024200074930 /* 隐私政策和协议 */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		659C668C2B0D024200074930 /* 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				659C668D2B0D024200074930 /* MineVC.swift */,
+				659C668E2B0D024200074930 /* PersonalInforVC.swift */,
+				659C668F2B0D024200074930 /* View */,
+				659C66922B0D024200074930 /* SetUpVC.swift */,
+			);
+			path = "我的";
+			sourceTree = "<group>";
+		};
+		659C668F2B0D024200074930 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				659C66902B0D024200074930 /* DataResultView.swift */,
+				659C66912B0D024200074930 /* TitleValueView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		659C66932B0D024200074930 /* 榜单 */ = {
+			isa = PBXGroup;
+			children = (
+				659C66942B0D024200074930 /* LeaderboardManagerVC.swift */,
+			);
+			path = "榜单";
+			sourceTree = "<group>";
+		};
+		659C66952B0D024200074930 /* 脸猜 */ = {
+			isa = PBXGroup;
+			children = (
+				659C66962B0D024200074930 /* PopUp */,
+				659C66982B0D024200074930 /* FachaiVC.swift */,
+				659C66992B0D024200074930 /* FachaiDetailsVC.swift */,
+				659C669A2B0D024200074930 /* FachaiDetailsContentVC.swift */,
+			);
+			path = "脸猜";
+			sourceTree = "<group>";
+		};
+		659C66962B0D024200074930 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				659C66972B0D024200074930 /* MoreShowView.swift */,
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
+		659C669B2B0D024200074930 /* 连猜 */ = {
+			isa = PBXGroup;
+			children = (
+				659C669C2B0D024200074930 /* LenchaiVC.swift */,
+				659C669D2B0D024200074930 /* UnlockLenchaiVC.swift */,
+			);
+			path = "连猜";
+			sourceTree = "<group>";
+		};
+		659C669E2B0D024200074930 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				659C669F2B0D024200074930 /* LoginVC.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		659C66A02B0D024200074930 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				659C66A12B0D024200074930 /* BaseTabBarController.swift */,
+				659C66A22B0D024200074930 /* BaseViewController.swift */,
+				659C66A32B0D024200074930 /* BaseNavigationController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		659C66A42B0D024200074930 /* 隐私政策和协议 */ = {
+			isa = PBXGroup;
+			children = (
+				659C66A52B0D024200074930 /* PolicyVC.swift */,
+				659C66A62B0D024200074930 /* PrivacyPolicyVC.swift */,
+			);
+			path = "隐私政策和协议";
+			sourceTree = "<group>";
+		};
+		659C66A72B0D024200074930 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				659C66A82B0D024200074930 /* UIColor+Extension.swift */,
+				659C66A92B0D024200074930 /* UIButton+Extension.swift */,
+				659C66AA2B0D024200074930 /* NSObject+Extension.swift */,
+				659C66AB2B0D024200074930 /* UIView+Extension.swift */,
+				659C66AC2B0D024200074930 /* Tool.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		659C66AD2B0D024200074930 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
+		659C66AF2B0D024200074930 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				659C66B02B0D024200074930 /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		659C666E2B0D020A00074930 /* FachaiAB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 659C66832B0D020B00074930 /* Build configuration list for PBXNativeTarget "FachaiAB" */;
+			buildPhases = (
+				7FCAE78DE6DE57BD8A350D9D /* [CP] Check Pods Manifest.lock */,
+				659C666B2B0D020A00074930 /* Sources */,
+				659C666C2B0D020A00074930 /* Frameworks */,
+				659C666D2B0D020A00074930 /* Resources */,
+				2D12ED2C20ECC20D53B89BC3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FachaiAB;
+			productName = FachaiAB;
+			productReference = 659C666F2B0D020A00074930 /* FachaiAB.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		659C66672B0D020A00074930 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					659C666E2B0D020A00074930 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 659C666A2B0D020A00074930 /* Build configuration list for PBXProject "FachaiAB" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 659C66662B0D020A00074930;
+			productRefGroup = 659C66702B0D020A00074930 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				659C666E2B0D020A00074930 /* FachaiAB */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		659C666D2B0D020A00074930 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				659C667F2B0D020B00074930 /* LaunchScreen.storyboard in Resources */,
+				659C667C2B0D020B00074930 /* Assets.xcassets in Resources */,
+				659C667A2B0D020A00074930 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2D12ED2C20ECC20D53B89BC3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FachaiAB/Pods-FachaiAB-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FachaiAB/Pods-FachaiAB-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FachaiAB/Pods-FachaiAB-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FCAE78DE6DE57BD8A350D9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FachaiAB-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		659C666B2B0D020A00074930 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				659C66C42B0D024200074930 /* PolicyVC.swift in Sources */,
+				659C66BC2B0D024200074930 /* FachaiDetailsVC.swift in Sources */,
+				659C66BB2B0D024200074930 /* FachaiVC.swift in Sources */,
+				659C66772B0D020A00074930 /* ViewController.swift in Sources */,
+				659C66C02B0D024200074930 /* LoginVC.swift in Sources */,
+				659C66B82B0D024200074930 /* SetUpVC.swift in Sources */,
+				659C66C22B0D024200074930 /* BaseViewController.swift in Sources */,
+				659C66B62B0D024200074930 /* DataResultView.swift in Sources */,
+				659C66CC2B0D024200074930 /* Network.swift in Sources */,
+				659C66BE2B0D024200074930 /* LenchaiVC.swift in Sources */,
+				659C66C62B0D024200074930 /* UIColor+Extension.swift in Sources */,
+				659C66B32B0D024200074930 /* Toast.swift in Sources */,
+				659C66C82B0D024200074930 /* NSObject+Extension.swift in Sources */,
+				659C66B12B0D024200074930 /* LocalStorage.swift in Sources */,
+				659C66B52B0D024200074930 /* PersonalInforVC.swift in Sources */,
+				659C66B92B0D024200074930 /* LeaderboardManagerVC.swift in Sources */,
+				659C66B72B0D024200074930 /* TitleValueView.swift in Sources */,
+				659C66C72B0D024200074930 /* UIButton+Extension.swift in Sources */,
+				659C66C12B0D024200074930 /* BaseTabBarController.swift in Sources */,
+				659C66CB2B0D024200074930 /* AppDelegate.swift in Sources */,
+				659C66C52B0D024200074930 /* PrivacyPolicyVC.swift in Sources */,
+				659C66BA2B0D024200074930 /* MoreShowView.swift in Sources */,
+				659C66B42B0D024200074930 /* MineVC.swift in Sources */,
+				659C66CA2B0D024200074930 /* Tool.swift in Sources */,
+				659C66B22B0D024200074930 /* LocationManager.swift in Sources */,
+				659C66C92B0D024200074930 /* UIView+Extension.swift in Sources */,
+				659C66BD2B0D024200074930 /* FachaiDetailsContentVC.swift in Sources */,
+				659C66C32B0D024200074930 /* BaseNavigationController.swift in Sources */,
+				659C66BF2B0D024200074930 /* UnlockLenchaiVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		659C66782B0D020A00074930 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				659C66792B0D020A00074930 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		659C667D2B0D020B00074930 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				659C667E2B0D020B00074930 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		659C66812B0D020B00074930 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		659C66822B0D020B00074930 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		659C66842B0D020B00074930 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FC6982E6BC11B335FDC5E9F /* Pods-FachaiAB.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2FXAU7VW4X;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				EXCLUDED_ARCHS = arm64;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FachaiAB/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "我们可以通过您的位置向您推荐周边的朋友";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "我们可以通过您的位置信息,向您推荐周边的朋友";
+				INFOPLIST_KEY_NSLocationUsageDescription = "我们可以通过您的位置信息,向您推荐周边的朋友";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "我们可以通过您的位置信息,向您推荐周边的朋友";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "该应用程序需要您的同意才能访问相册以设置头像信息";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "为您推荐更精准的信息和优质服务，需要获取您的设备信息。";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Alamofire\"",
+					"-l\"AutoInch\"",
+					"-l\"HandyJSON\"",
+					"-l\"IQKeyboardManagerSwift\"",
+					"-l\"Loaf\"",
+					"-l\"LookinServer\"",
+					"-l\"SDWebImage\"",
+					"-l\"SnapKit\"",
+					"-l\"UIColor_Hex_Swift\"",
+					"-l\"YYText\"",
+					"-l\"c++.1\"",
+					"-l\"swiftCoreGraphics\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CL_ShanYanSDK\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"EAccountApiSDK\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OAuth\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"TYRZUISDK\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"Network\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fachaiab.qw;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		659C66852B0D020B00074930 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7A461723955310531E9D37E /* Pods-FachaiAB.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2FXAU7VW4X;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				EXCLUDED_ARCHS = arm64;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FachaiAB/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "我们可以通过您的位置向您推荐周边的朋友";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "我们可以通过您的位置信息,向您推荐周边的朋友";
+				INFOPLIST_KEY_NSLocationUsageDescription = "我们可以通过您的位置信息,向您推荐周边的朋友";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "我们可以通过您的位置信息,向您推荐周边的朋友";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "该应用程序需要您的同意才能访问相册以设置头像信息";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "为您推荐更精准的信息和优质服务，需要获取您的设备信息。";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Alamofire\"",
+					"-l\"AutoInch\"",
+					"-l\"HandyJSON\"",
+					"-l\"IQKeyboardManagerSwift\"",
+					"-l\"Loaf\"",
+					"-l\"LookinServer\"",
+					"-l\"SDWebImage\"",
+					"-l\"SnapKit\"",
+					"-l\"UIColor_Hex_Swift\"",
+					"-l\"YYText\"",
+					"-l\"c++.1\"",
+					"-l\"swiftCoreGraphics\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CL_ShanYanSDK\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"EAccountApiSDK\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OAuth\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"TYRZUISDK\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"Network\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fachaiab.qw;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		659C666A2B0D020A00074930 /* Build configuration list for PBXProject "FachaiAB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				659C66812B0D020B00074930 /* Debug */,
+				659C66822B0D020B00074930 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		659C66832B0D020B00074930 /* Build configuration list for PBXNativeTarget "FachaiAB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				659C66842B0D020B00074930 /* Debug */,
+				659C66852B0D020B00074930 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 659C66672B0D020A00074930 /* Project object */;
+}

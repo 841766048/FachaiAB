@@ -1,0 +1,6 @@
+module Pods_FachaiAB {
+  umbrella header "Pods-FachaiAB-umbrella.h"
+
+  export *
+  module * { export * }
+}
