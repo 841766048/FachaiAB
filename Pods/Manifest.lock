@@ -12,6 +12,9 @@ PODS:
     - SDWebImage/Core (= 5.18.5)
   - SDWebImage/Core (5.18.5)
   - SnapKit (5.6.0)
+  - SVProgressHUD (2.3.1):
+    - SVProgressHUD/Core (= 2.3.1)
+  - SVProgressHUD/Core (2.3.1)
   - UIColor_Hex_Swift (5.1.9)
   - YYText (1.0.7)
 
@@ -25,6 +28,7 @@ DEPENDENCIES:
   - LookinServer
   - SDWebImage
   - SnapKit
+  - SVProgressHUD
   - UIColor_Hex_Swift (~> 5.1.9)
   - YYText
 
@@ -39,6 +43,7 @@ SPEC REPOS:
     - LookinServer
     - SDWebImage
     - SnapKit
+    - SVProgressHUD
     - UIColor_Hex_Swift
     - YYText
 
@@ -52,9 +57,10 @@ SPEC CHECKSUMS:
   LookinServer: 00c7588043ed8e7ab64ce55b9fb747e51371ad06
   SDWebImage: 7ac2b7ddc5e8484c79aa90fc4e30b149d6a2c88f
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
   UIColor_Hex_Swift: 20cb4e8d51b63e168a9da6933bc5d39cd8fb4ab5
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: d76c147a7b4bd3ec7081f5bfe3f1dd5e815183b4
+PODFILE CHECKSUM: ee846c2897d9158bba78d0c85e0847cfade3aee7
 
 COCOAPODS: 1.13.0

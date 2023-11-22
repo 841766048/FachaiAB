@@ -227,6 +227,7 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
         startCountdown()
         requestVerificationCode()
     }
+    // 一键登录
     func oneClickLogin() {
         let baseUIConfigure = CLUIConfigure()
         baseUIConfigure.viewController = self
@@ -277,6 +278,7 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
             code_btn.setTitle("验证码登录", for: .normal)
             code_btn.backgroundColor = UIColor(hex: "#191919")
             code_btn.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+            code_btn.addTarget(self, action: #selector(self.code_btnClick), for: .touchUpInside)
             customAreaView.addSubview(code_btn)
             code_btn.snp.makeConstraints { make in
                 make.top.equalToSuperview().offset(272)
@@ -369,6 +371,7 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
                 }
             } else {
                 print("成功 = \(String(describing: result.data))")
+                
             }
         }
         
@@ -401,9 +404,31 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
     }
     
     @objc func login_btnClick() {
-        LocalStorage.saveIsLogin(true)
-        let notification = Notification(name: .switchRootViewController)
-        NotificationCenter.default.post(notification)
+        if self.isSelect {
+            guard let phone = self.photoNumber.text else {
+                toast("请填写手机号", state: .info)
+                return
+            }
+            if phone.count == 0 {
+                toast("请填写手机号", state: .info)
+                return
+            }
+            guard let code = codeTextField.text else {
+                toast("请填写验证码", state: .info)
+                return
+            }
+            if code.count == 0 {
+                toast("请填写手机号", state: .info)
+                return
+            }
+            LocalStorage.saveIsLogin(true)
+            let notification = Notification(name: .switchRootViewController)
+            NotificationCenter.default.post(notification)
+            
+        } else {
+            toast("请同意“用户协议”和“隐私政策”", state: .info)
+        }
+        
     }
     
     @objc func selectClick(_ send: UIButton) {
@@ -420,6 +445,11 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
             toast("请同意“用户协议”和“隐私政策”", state: .info)
         }
         
+    }
+    
+    @objc func code_btnClick() {
+        print("验证码登录")
+        CLShanYanSDKManager.finishAuthControllerCompletion()
     }
 }
 

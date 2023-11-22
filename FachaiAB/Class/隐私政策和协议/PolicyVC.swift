@@ -20,13 +20,6 @@ class PolicyVC: BaseViewController {
     var isPolicy = true
     override func viewDidLoad() {
         super.viewDidLoad()
-        LocationManager.shared.fetchUserLocation { location in
-            if let loc = location {
-                print("Latitude: \(loc.coordinate.latitude), Longitude: \(loc.coordinate.longitude)")
-                LocalStorage.savelfi("\(loc.coordinate.longitude)")
-                LocalStorage.savelob("\(loc.coordinate.latitude)")
-            }
-        }
     }
     override func initWithUI() {
         super.initWithUI()

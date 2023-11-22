@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-
+source 'https://github.com/relatedcode/ProgressHUD.git'
 platform :ios, '12.0'
 
 target 'FachaiAB' do
@@ -8,17 +8,15 @@ target 'FachaiAB' do
   pod 'SnapKit'
   pod 'AutoInch'
   pod 'UIColor_Hex_Swift', '~> 5.1.9'
-
   pod 'LookinServer'
   pod 'CL_ShanYanSDK' # 闪验
-  
   pod 'YYText', :modular_headers => true
   # 键盘管理
   pod 'IQKeyboardManagerSwift'
-  
   pod 'Alamofire'
-  
   pod 'HandyJSON'
+  pod 'SVProgressHUD'
+
 end
 
 post_install do |installer|

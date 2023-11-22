@@ -1,3 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-FachaiAB/Pods-FachaiAB-resources.sh
 ${PODS_ROOT}/CL_ShanYanSDK/framework/sdk_oauth.bundle
 ${PODS_ROOT}/IQKeyboardManagerSwift/IQKeyboardManagerSwift/PrivacyInfo.xcprivacy
+${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle
+${PODS_ROOT}/SVProgressHUD/SVProgressHUD/PrivacyInfo.xcprivacy

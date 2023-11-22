@@ -40,16 +40,14 @@
 		659C66CB2B0D024200074930 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66AE2B0D024200074930 /* AppDelegate.swift */; };
 		659C66CC2B0D024200074930 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66B02B0D024200074930 /* Network.swift */; };
 		65C389C72B0DA36D0046B460 /* libTalkingDataSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389C62B0DA36D0046B460 /* libTalkingDataSDK.a */; };
-		65C389C92B0DA3980046B460 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389C82B0DA3980046B460 /* AdServices.framework */; };
-		65C389CB2B0DA3A10046B460 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389CA2B0DA3A10046B460 /* iAd.framework */; };
-		65C389CD2B0DA3AE0046B460 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389CC2B0DA3AE0046B460 /* StoreKit.framework */; };
-		65C389CF2B0DA3BA0046B460 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389CE2B0DA3BA0046B460 /* AppTrackingTransparency.framework */; };
-		65C389D12B0DA3C60046B460 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389D02B0DA3C60046B460 /* AdSupport.framework */; };
-		65C389D32B0DA3DE0046B460 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389D22B0DA3DE0046B460 /* CoreTelephony.framework */; };
-		65C389D52B0DA3EB0046B460 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389D42B0DA3EB0046B460 /* Security.framework */; };
-		65C389D72B0DA3F90046B460 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389D62B0DA3F90046B460 /* SystemConfiguration.framework */; };
-		65C389D92B0DA40D0046B460 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389D82B0DA40D0046B460 /* libc++.tbd */; };
-		65C389DB2B0DA4240046B460 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389DA2B0DA4240046B460 /* libz.tbd */; };
+		65C389E02B0DA5DF0046B460 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389D02B0DA3C60046B460 /* AdSupport.framework */; };
+		65C389E12B0DA5E60046B460 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389D22B0DA3DE0046B460 /* CoreTelephony.framework */; };
+		65C389E32B0DA5ED0046B460 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389E22B0DA5ED0046B460 /* CoreMotion.framework */; };
+		65C389E42B0DA5F40046B460 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389D42B0DA3EB0046B460 /* Security.framework */; };
+		65C389E52B0DA5FA0046B460 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389D62B0DA3F90046B460 /* SystemConfiguration.framework */; };
+		65C389E62B0DA6030046B460 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389DA2B0DA4240046B460 /* libz.tbd */; };
+		65C389E72B0DA6100046B460 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C389D82B0DA40D0046B460 /* libc++.tbd */; };
+		65C389EA2B0DB8990046B460 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C389E92B0DB8990046B460 /* LoginViewModel.swift */; };
 		B6F82F2E8646D5F49003A14F /* libPods-FachaiAB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7075D30AAD4E03B10736A9A /* libPods-FachaiAB.a */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +99,9 @@
 		65C389D62B0DA3F90046B460 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		65C389D82B0DA40D0046B460 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		65C389DA2B0DA4240046B460 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		65C389DC2B0DA4E80046B460 /* FachaiAB-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FachaiAB-Bridging-Header.h"; sourceTree = "<group>"; };
+		65C389E22B0DA5ED0046B460 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		65C389E92B0DB8990046B460 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		6FC6982E6BC11B335FDC5E9F /* Pods-FachaiAB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FachaiAB.debug.xcconfig"; path = "Target Support Files/Pods-FachaiAB/Pods-FachaiAB.debug.xcconfig"; sourceTree = "<group>"; };
 		B7A461723955310531E9D37E /* Pods-FachaiAB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FachaiAB.release.xcconfig"; path = "Target Support Files/Pods-FachaiAB/Pods-FachaiAB.release.xcconfig"; sourceTree = "<group>"; };
 		E7075D30AAD4E03B10736A9A /* libPods-FachaiAB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FachaiAB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,16 +112,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65C389DB2B0DA4240046B460 /* libz.tbd in Frameworks */,
-				65C389D92B0DA40D0046B460 /* libc++.tbd in Frameworks */,
-				65C389D72B0DA3F90046B460 /* SystemConfiguration.framework in Frameworks */,
-				65C389D52B0DA3EB0046B460 /* Security.framework in Frameworks */,
-				65C389D32B0DA3DE0046B460 /* CoreTelephony.framework in Frameworks */,
-				65C389D12B0DA3C60046B460 /* AdSupport.framework in Frameworks */,
-				65C389CF2B0DA3BA0046B460 /* AppTrackingTransparency.framework in Frameworks */,
-				65C389CD2B0DA3AE0046B460 /* StoreKit.framework in Frameworks */,
-				65C389CB2B0DA3A10046B460 /* iAd.framework in Frameworks */,
-				65C389C92B0DA3980046B460 /* AdServices.framework in Frameworks */,
+				65C389E72B0DA6100046B460 /* libc++.tbd in Frameworks */,
+				65C389E62B0DA6030046B460 /* libz.tbd in Frameworks */,
+				65C389E52B0DA5FA0046B460 /* SystemConfiguration.framework in Frameworks */,
+				65C389E42B0DA5F40046B460 /* Security.framework in Frameworks */,
+				65C389E32B0DA5ED0046B460 /* CoreMotion.framework in Frameworks */,
+				65C389E12B0DA5E60046B460 /* CoreTelephony.framework in Frameworks */,
+				65C389E02B0DA5DF0046B460 /* AdSupport.framework in Frameworks */,
 				B6F82F2E8646D5F49003A14F /* libPods-FachaiAB.a in Frameworks */,
 				65C389C72B0DA36D0046B460 /* libTalkingDataSDK.a in Frameworks */,
 			);
@@ -132,6 +130,7 @@
 		0613353EAB195869C6607CA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65C389E22B0DA5ED0046B460 /* CoreMotion.framework */,
 				65C389DA2B0DA4240046B460 /* libz.tbd */,
 				65C389D82B0DA40D0046B460 /* libc++.tbd */,
 				65C389D62B0DA3F90046B460 /* SystemConfiguration.framework */,
@@ -191,6 +190,7 @@
 				659C667B2B0D020B00074930 /* Assets.xcassets */,
 				659C667D2B0D020B00074930 /* LaunchScreen.storyboard */,
 				659C66802B0D020B00074930 /* Info.plist */,
+				65C389DC2B0DA4E80046B460 /* FachaiAB-Bridging-Header.h */,
 			);
 			path = FachaiAB;
 			sourceTree = "<group>";
@@ -278,6 +278,7 @@
 		659C669E2B0D024200074930 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				65C389E82B0DB8860046B460 /* Model */,
 				659C669F2B0D024200074930 /* LoginVC.swift */,
 			);
 			path = Login;
@@ -329,6 +330,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		65C389E82B0DB8860046B460 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				65C389E92B0DB8990046B460 /* LoginViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -347,6 +356,8 @@
 			dependencies = (
 			);
 			name = FachaiAB;
+			packageProductDependencies = (
+			);
 			productName = FachaiAB;
 			productReference = 659C666F2B0D020A00074930 /* FachaiAB.app */;
 			productType = "com.apple.product-type.application";
@@ -363,6 +374,7 @@
 				TargetAttributes = {
 					659C666E2B0D020A00074930 = {
 						CreatedOnToolsVersion = 15.0.1;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -375,6 +387,8 @@
 				Base,
 			);
 			mainGroup = 659C66662B0D020A00074930;
+			packageReferences = (
+			);
 			productRefGroup = 659C66702B0D020A00074930 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -452,6 +466,7 @@
 				659C66B82B0D024200074930 /* SetUpVC.swift in Sources */,
 				659C66C22B0D024200074930 /* BaseViewController.swift in Sources */,
 				659C66B62B0D024200074930 /* DataResultView.swift in Sources */,
+				65C389EA2B0DB8990046B460 /* LoginViewModel.swift in Sources */,
 				659C66CC2B0D024200074930 /* Network.swift in Sources */,
 				659C66BE2B0D024200074930 /* LenchaiVC.swift in Sources */,
 				659C66C62B0D024200074930 /* UIColor+Extension.swift in Sources */,
@@ -623,6 +638,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FachaiAB/FachaiAB.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -700,6 +716,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fachaiab.qw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "FachaiAB/FachaiAB-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -711,6 +729,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FachaiAB/FachaiAB.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -788,6 +807,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fachaiab.qw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "FachaiAB/FachaiAB-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
