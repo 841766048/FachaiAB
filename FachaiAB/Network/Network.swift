@@ -26,8 +26,8 @@ class Network {
         let currentHour = getCurrentHour()
         let md5Signature = generateMD5Hash(key: key, hour: currentHour)
         return [
-            "vjrzgaf": appVersion,
-            "hlgjfb": "苹果iPhone手机客户端",
+            "vjrzgaf": "1.0.0",
+            "hlgjfb": "iPhone",
             "djvghj": device,
             "gdno": LocalStorage.getIdfa(),
             "djvghj_bakjf": LocalStorage.getDeviceToken(),
@@ -62,7 +62,7 @@ class Network {
                           method: .post,
                           parameters: par,
                           encoder: encoder,
-                          headers: [:],
+                          headers: ["content-type":"application/x-www-form-urlencoded"],
                           requestModifier: {$0.timeoutInterval = 15}
         )
     }
@@ -86,6 +86,27 @@ class Network {
         let hour = calendar.component(.hour, from: currentDate)
         return hour
     }
+    
+    func getH5() -> String {
+        let par = commonParameters.merging(["key": LocalStorage.getUserKey(), "kefu": LocalStorage.getKefu()]) { _, new in
+            new
+        }
+        let url = buildURLString(baseURL: "https://bafacegs.tongchengjianzhi.cn/find/", parameters: par)
+        return url
+    }
+    func buildURLString(baseURL: String, parameters: [String: Any]) -> String {
+        var urlString = baseURL + "?"
+
+        var queryItems: [String] = []
+        for (key, value) in parameters {
+            let stringValue = "\(value)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            let queryItem = "\(key)=\(stringValue)"
+            queryItems.append(queryItem)
+        }
+
+        urlString += queryItems.joined(separator: "&")
+        return urlString
+    }
 }
 
 extension DataRequest {
@@ -101,11 +122,23 @@ extension DataRequest {
                 return
             }
             
-            guard let object = JSONDeserializer<T>.deserializeFrom(json: jsonString) else {
+            guard let object = JSONDeserializer<ResultModel<T>>.deserializeFrom(json: jsonString) else {
                 completionHandler(DataResult(data: nil, error: "Json字符串不能转换为object"))
                 return
             }
-            completionHandler(DataResult(data: object, error: nil))
+            if object.code == 200 {
+                if let data = object.data  {
+                    completionHandler(DataResult(data: data, error: nil))
+                    return
+                } else {
+                    toast(object.msg, state: .info)
+                    completionHandler(DataResult(data: nil, error: nil))
+                }
+                
+            } else {
+                completionHandler(DataResult(data: nil, error: object.msg))
+            }
+            
         }
     }
 }
@@ -114,3 +147,10 @@ struct DataResult<T: HandyJSON> {
     let data: T?
     let error: String?
 }
+
+struct ResultModel<T:HandyJSON>: HandyJSON {
+    var msg: String = ""
+    var code: Int = 0
+    var data: T?
+}
+extension Bool: HandyJSON {}

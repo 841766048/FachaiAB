@@ -123,6 +123,14 @@ class MineVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        MineViewModel.getSetPermiss { model in
+//            if model.rank == 1 {
+//                SKStoreReviewController.requestReview()
+//            }
+//        }
+    }
     override func initWithUI() {
         super.initWithUI()
         self.view.addSubview(self.headView)

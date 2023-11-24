@@ -16,7 +16,8 @@ target 'FachaiAB' do
   pod 'Alamofire'
   pod 'HandyJSON'
   pod 'SVProgressHUD'
-
+  
+  pod 'FLEX', :configurations => ['Debug']
 end
 
 post_install do |installer|

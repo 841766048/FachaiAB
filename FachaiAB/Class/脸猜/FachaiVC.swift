@@ -126,8 +126,9 @@ class FachaiVC: BaseViewController {
     
     @objc func imageClick(_ send: UIButton) {
         print("send.tag = \(send.tag )")
-        if Bool.random() {
-            let alertController = UIAlertController(title: "", message: "在线客户有点多哦\n请稍后再试", preferredStyle: .alert)
+        let full = LocalStorage.getFull()
+        if full.count > 0 {
+            let alertController = UIAlertController(title: "", message: full, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "好的", style: .cancel) { _ in
                 
             }

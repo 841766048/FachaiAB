@@ -25,7 +25,7 @@ extension UIColor {
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
     // 从颜色创建UIImage对象
-    func toImage(size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+    func toImage(size: CGSize = CGSize(width: screenWidth, height: 59)) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         guard let context = UIGraphicsGetCurrentContext() else { return UIImage() }
         

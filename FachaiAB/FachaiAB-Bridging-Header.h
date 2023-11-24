@@ -7,3 +7,7 @@
 #import "TalkingDataSDK.h"
 
 #import "SVProgressHUD.h"
+#ifdef DEBUG
+//#import <EchoSDK/ECOClient.h>
+#import "FLEXManager.h"
+#endif

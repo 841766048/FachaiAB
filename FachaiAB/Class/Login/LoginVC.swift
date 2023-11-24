@@ -176,6 +176,8 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
             oneClickLogin()
             isShow = false
         }
+        // 显示导航
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     override func initWithUI() {
         super.initWithUI()
@@ -224,6 +226,14 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
     }
     @objc func getVerificationCode() {
         // TODO: 在这里实现获取验证码逻辑
+        guard let phone = self.photoNumber.text else {
+            toast("请填写手机号", state: .info)
+            return
+        }
+        if phone.count == 0 {
+            toast("请填写手机号", state: .info)
+            return
+        }
         startCountdown()
         requestVerificationCode()
     }
@@ -371,11 +381,27 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
                 }
             } else {
                 print("成功 = \(String(describing: result.data))")
-                
+                if let token = result.data?["token"] as? String {
+                    LoginViewModel.oneClickLogin(token) { model in
+                        LocalStorage.saveDefaultTab(model.tab)
+                        LocalStorage.saveKefu(model.kefu)
+                        LocalStorage.saveIsLogin(true)
+                        LocalStorage.saveUserKey(model.key)
+                        MineViewModel.getSetPermiss { model in
+                            LocalStorage.saveFull(model.full)
+                            LocalStorage.saveDefaultTab(Int(model.tab) ?? 0)
+                        }
+                        self.navigationController?.popViewController(animated: true)
+//                        let notification = Notification(name: .switchRootViewController)
+//                        NotificationCenter.default.post(notification)
+                        
+                    }
+                }
             }
         }
         
     }
+    
     func startCountdown() {
         // 在这里实现倒计时逻辑
         // 可以使用 Timer 进行倒计时，具体实现可根据需求进行
@@ -397,12 +423,9 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
     }
     
     func requestVerificationCode() {
-        // 在这里实现发送请求获取验证码的逻辑
-        // 可以调用相应的 API 来发送请求
-        // 示例：发送网络请求或其他逻辑
-        // TODO: 实现请求验证码的功能
+        LoginViewModel.sendVerificationCode(self.photoNumber.text!)
     }
-    
+
     @objc func login_btnClick() {
         if self.isSelect {
             guard let phone = self.photoNumber.text else {
@@ -418,13 +441,22 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
                 return
             }
             if code.count == 0 {
-                toast("请填写手机号", state: .info)
+                toast("请填写验证码", state: .info)
                 return
             }
-            LocalStorage.saveIsLogin(true)
-            let notification = Notification(name: .switchRootViewController)
-            NotificationCenter.default.post(notification)
-            
+            LoginViewModel.codeLogin(phone, code: code) { model in
+                LocalStorage.saveDefaultTab(model.tab)
+                LocalStorage.saveKefu(model.kefu)
+                LocalStorage.saveIsLogin(true)
+                LocalStorage.saveUserKey(model.key)
+                MineViewModel.getSetPermiss { model in
+                    LocalStorage.saveFull(model.full)
+                    LocalStorage.saveDefaultTab(Int(model.tab) ?? 0)
+                }
+                self.navigationController?.popViewController(animated: true)
+//                let notification = Notification(name: .switchRootViewController)
+//                NotificationCenter.default.post(notification)
+            }
         } else {
             toast("请同意“用户协议”和“隐私政策”", state: .info)
         }

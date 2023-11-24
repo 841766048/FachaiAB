@@ -6,30 +6,40 @@
 //
 
 import UIKit
+class TabBarController {
+    static let instance = TabBarController()
+    var tab: BaseTabBarController = BaseTabBarController()
+}
 
-class BaseTabBarController: UITabBarController {
-    
+class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate = self
         initWithUI()
-        // Do any additional setup after loading the view.
+        setTabbar()
     }
     func initWithUI() {
         let customTabBar = CustomTabBar()
         setValue(customTabBar, forKey: "tabBar")
-
+        
         self.tabBar.tintColor = UIColor(hex: "#4272D7")
         self.tabBar.unselectedItemTintColor = UIColor(hex: "#999999")
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)], for: .normal)
+        
         
         
         let fachai_nav = configurationNav("脸猜", vc: FachaiVC())
+        fachai_nav.tag = 111
         let lenchai_nav = configurationNav("连猜", vc: LenchaiVC())
+        fachai_nav.tag = 222
         let leader_nav = configurationNav("榜单", vc: LeaderboardManagerVC())
+        leader_nav.tag = 333
         let mine_nav = configurationNav("我的", vc: MineVC())
+        mine_nav.tag = 444
         
         viewControllers = [fachai_nav, lenchai_nav, leader_nav, mine_nav]
         tabBar.backgroundColor = UIColor(hex: "#191919")
+        tabBar.barTintColor = UIColor(hex: "#191919")
+        
     }
     
     func configurationNav(_ title: String, vc: UIViewController) -> BaseNavigationController {
@@ -45,7 +55,32 @@ class BaseTabBarController: UITabBarController {
                               height: tabBar.frame.size.height + 10)
         tabBar.frame = newFrame
     }
-    
+    func setTabbar() {
+        let customTabBar = UITabBar.appearance()
+        if #available(iOS 13.0, *) {
+            let tabBarAppearance = UITabBarAppearance()
+            //设置tabar背景色
+            tabBarAppearance.backgroundColor = .black
+            customTabBar.standardAppearance = tabBarAppearance
+            if #available(iOS 15.0, *) {
+                customTabBar.scrollEdgeAppearance = tabBarAppearance
+            } else {
+                
+            }
+        } else {
+            customTabBar.barTintColor = .black
+        }
+    }
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        let nav = viewController as! BaseNavigationController
+        if nav.tag == 333 || nav.tag == 444 {
+            if !LocalStorage.getIsLogin() {
+                topViewController()?.navigationController?.pushViewController(LoginVC(), animated: true)
+                return false
+            }
+        }
+        return true
+    }
 }
 
 class CustomTabBar: UITabBar {
@@ -58,4 +93,6 @@ class CustomTabBar: UITabBar {
             }
         }
     }
+    
+    
 }

@@ -8,11 +8,16 @@
 import UIKit
 
 class SetUpVC: BaseViewController {
-
+    var cancellationCopy: String = "您确认要注销这个账号吗？"
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "系统设置"
         // Do any additional setup after loading the view.
+        MineViewModel.getCancellationCopy { model in
+            if model.tip.count > 0 {
+                self.cancellationCopy = model.tip
+            }
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -53,10 +58,10 @@ class SetUpVC: BaseViewController {
     
     @objc func logOff_btnClick() {
         print("注销")
-        let alertController = UIAlertController(title: "", message: "您确认要注销这个账号吗？", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "", message: self.cancellationCopy, preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "确认", style: .cancel) { _ in
-            
+            LoginViewModel.logoff()
         }
         alertController.addAction(cancelAction)
         
@@ -71,7 +76,7 @@ class SetUpVC: BaseViewController {
         let alertController = UIAlertController(title: "", message: "您确认要退出登录吗？", preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "确认", style: .cancel) { _ in
-            
+            LoginViewModel.logOutLogin()
         }
         alertController.addAction(cancelAction)
         

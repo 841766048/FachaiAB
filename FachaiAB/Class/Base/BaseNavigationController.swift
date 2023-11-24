@@ -8,6 +8,7 @@
 import UIKit
 
 class BaseNavigationController: UINavigationController {
+    var tag = -1
     lazy var back_btn: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "back"), for: .normal)
