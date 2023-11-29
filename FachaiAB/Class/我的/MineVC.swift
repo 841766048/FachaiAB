@@ -25,7 +25,7 @@ class MineVC: BaseViewController {
         let label = UILabel()
         label.textColor = UIColor(hex: "#999999")
         label.font = .systemFont(ofSize: 13)
-        label.text = "135****4480"
+        label.text = LocalStorage.getPhoneNumber() ?? ""
         return label
     }()
     lazy var gender_icon_imageView: UIImageView = {
@@ -41,6 +41,8 @@ class MineVC: BaseViewController {
             make.left.equalToSuperview().offset(16.auto())
             make.width.height.equalTo(60.auto())
         }
+        headImageView.layer.cornerRadius = 30.auto()
+        headImageView.layer.masksToBounds = true
         view.addSubview(self.nickName)
         nickName.snp.makeConstraints { make in
             make.left.equalTo(headImageView.snp.right).offset(17.auto())
@@ -92,11 +94,11 @@ class MineVC: BaseViewController {
             make.centerY.equalToSuperview()
         }
         let right_icon = UIImageView(image: UIImage(named: "right_icon"))
-        view.addSubview(right_icon)
-        right_icon.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-34.auto())
-        }
+//        view.addSubview(right_icon)
+//        right_icon.snp.makeConstraints { make in
+//            make.centerY.equalToSuperview()
+//            make.right.equalToSuperview().offset(-34.auto())
+//        }
         return view
     }()
     /// 脸猜
@@ -105,7 +107,7 @@ class MineVC: BaseViewController {
         view.titleLabel.text = "脸猜"
         view.success_numberView.valueLabel.text = "6次"
         view.success_rate_numberView.valueLabel.text = "69%"
-        view.ranking_numberView.valueLabel.text = "234"
+//        view.ranking_numberView.valueLabel.text = "234"
         view.backgroundColor = UIColor(hex: "#3F6CCB")
         return view
     }()
@@ -115,16 +117,64 @@ class MineVC: BaseViewController {
         view.titleLabel.text = "连猜"
         view.success_numberView.valueLabel.text = "6次"
         view.success_rate_numberView.valueLabel.text = "69%"
-        view.ranking_numberView.valueLabel.text = "234"
+//        view.ranking_numberView.valueLabel.text = "234"
         view.backgroundColor = UIColor(hex: "#EC5399")
         return view
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let des_arr = [
+        "学贵信，信在诚。诚则信矣，信则诚矣。",
+        "天见其明，地见其光，君子贵其全也。",
+        "谬论从门缝钻进，真理立于门前。",
+        "滚滚黄河，冲破冰山，切开雪野，艰难曲折而又一往无前地一泻千里",
+        "识尽了喧嚣红尘，拥堵繁盛，那一片空山却以沈稳而清新的寂寥，让归隐者顿悟宇宙的深义",
+        "夏天的晚风，轻轻吹动窗帘，暮色朦胧，打会瞌睡，差点决定这样过一生。",
+        "想想光头强，想想灰太狼，你有什么理由不坚强。"
+        ]
+        let index = Int.random(in: 0..<des_arr.count)
+        self.desLabel.text = des_arr[index]
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let img = loadImageFromDocumentsDirectory(forKey: LocalStorage.getDeviceToken()) {
+            self.headImageView.image = img
+        }
+        if let nickName = LocalStorage.getUserName() {
+            self.nickName.text = nickName
+        }
+        
+        var liancai_total_count = LocalStorage.getTotalLianCaiCount()
+        var liancai_success_count = LocalStorage.getSuccessLianCaiCount()
+        
+        var total_count = LocalStorage.getTotalFachaiCount()
+        var success_count = LocalStorage.getSuccessFachaiCount()
+        
+        
+        fachai_result_view.success_numberView.valueLabel.text = "\(success_count)次"
+        
+        if success_count != 0,total_count != 0  {
+            let accuracy = Double(success_count) / Double(total_count) * 100
+            let formattedAccuracy = String(format: "%.2f", accuracy)
+            fachai_result_view.success_rate_numberView.valueLabel.text = "\(formattedAccuracy)%"
+        } else {
+            fachai_result_view.success_rate_numberView.valueLabel.text = "0%"
+        }
+        
+        
+        even_guess_view.success_numberView.valueLabel.text = "\(liancai_success_count)次"
+        
+        if liancai_success_count != 0,liancai_total_count != 0
+        {
+            var even = Double(liancai_success_count) / Double(liancai_total_count)
+            let formattedAccuracy = String(format: "%.2f", even)
+            even_guess_view.success_rate_numberView.valueLabel.text = "\(formattedAccuracy)%"
+        } else {
+            even_guess_view.success_rate_numberView.valueLabel.text = "0%"
+        }
+        
+        
 //        MineViewModel.getSetPermiss { model in
 //            if model.rank == 1 {
 //                SKStoreReviewController.requestReview()

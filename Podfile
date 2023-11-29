@@ -8,7 +8,7 @@ target 'FachaiAB' do
   pod 'SnapKit'
   pod 'AutoInch'
   pod 'UIColor_Hex_Swift', '~> 5.1.9'
-  pod 'LookinServer'
+  
   pod 'CL_ShanYanSDK' # 闪验
   pod 'YYText', :modular_headers => true
   # 键盘管理
@@ -18,6 +18,7 @@ target 'FachaiAB' do
   pod 'SVProgressHUD'
   
   pod 'FLEX', :configurations => ['Debug']
+  pod 'LookinServer'
 end
 
 post_install do |installer|

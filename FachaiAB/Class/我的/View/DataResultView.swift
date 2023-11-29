@@ -27,7 +27,7 @@ class DataResultView: UIView {
     }()
     lazy var ranking_numberView: TitleValueView = {
         let view = TitleValueView()
-        view.titleLabel.text = "目前排名"
+//        view.titleLabel.text = "目前排名"
         return view
     }()
     init() {

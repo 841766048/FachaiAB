@@ -156,6 +156,16 @@ class LenchaiVC: BaseViewController {
     }
     
     @objc func blueClick() {
+        if !LocalStorage.getIsLogin() {
+            topViewController()?.navigationController?.pushViewController(LoginVC(), animated: true)
+            return
+        }
+        var total_count = LocalStorage.getTotalLianCaiCount()
+        var success_count = LocalStorage.getSuccessLianCaiCount()
+        total_count += 1
+        LocalStorage.saveTotalLianCaiCount(number: total_count)
+        
+        
         let full = LocalStorage.getFull()
         if full.count > 0 {
             let alertController = UIAlertController(title: "", message: full, preferredStyle: .alert)
@@ -168,7 +178,6 @@ class LenchaiVC: BaseViewController {
             return
         }
         
-//        self.navigationController?.pushViewController(UnlockLenchaiVC(), animated: true)
         
         blue_number += 1
         red_number = 0
@@ -181,10 +190,29 @@ class LenchaiVC: BaseViewController {
             self.blue_numberLabel.isHidden = true
         }
         if blue_number == 5 {
-            self.navigationController?.pushViewController(FachaiDetailsVC(), animated: true)
+            success_count += 1
+            LocalStorage.saveSuccessLianCaiCount(number: success_count)
+            LenchaiViewModel.getLianCaiData { model in
+                let vc = UnlockLenchaiVC()
+                vc.dataModel = model
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     @objc func redClick() {
+        if !LocalStorage.getIsLogin() {
+            topViewController()?.navigationController?.pushViewController(LoginVC(), animated: true)
+            return
+        }
+        
+        var total_count = LocalStorage.getTotalLianCaiCount()
+        var success_count = LocalStorage.getSuccessLianCaiCount()
+        total_count += 1
+        LocalStorage.saveTotalLianCaiCount(number: total_count)
+        
+        
+        
+        
         let full = LocalStorage.getFull()
         if full.count > 0 {
             let alertController = UIAlertController(title: "", message: full, preferredStyle: .alert)
@@ -208,7 +236,14 @@ class LenchaiVC: BaseViewController {
             self.red_numberLabel.isHidden = true
         }
         if red_number == 5 {
-            self.navigationController?.pushViewController(FachaiDetailsVC(), animated: true)
+            success_count += 1
+            LocalStorage.saveSuccessLianCaiCount(number: success_count)
+            
+            LenchaiViewModel.getLianCaiData { model in
+                let vc = UnlockLenchaiVC()
+                vc.dataModel = model
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     

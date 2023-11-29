@@ -58,6 +58,7 @@ class Network {
         let par = commonParameters.merging(params) { _, new in
             new
         }
+        SVProgressHUD.show()
         return AF.request(baseURL + path,
                           method: .post,
                           parameters: par,
@@ -139,6 +140,26 @@ extension DataRequest {
                 completionHandler(DataResult(data: nil, error: object.msg))
             }
             
+        }
+    }
+    
+    func responseArrayModel<T: HandyJSON>(_ type: T.Type, completionHandler: @escaping ([T?]) -> Void) {
+        SVProgressHUD.dismiss()
+        self.response { response in
+            guard let data = response.data else {
+                completionHandler([])
+                return
+            }
+            guard let jsonString = String(data: data, encoding: .utf8) else {
+                completionHandler([])
+                return
+            }
+            
+            guard let object = JSONDeserializer<T>.deserializeModelArrayFrom(json: jsonString, designatedPath: nil) else {
+                completionHandler([])
+                return
+            }
+            completionHandler(object)
         }
     }
 }

@@ -65,10 +65,19 @@ class UnlockLenchaiVC: BaseViewController {
         btn.roundCorners(radius: 10.auto())
         return btn
     }()
+    var dataModel: FachaiModel?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if let model = self.dataModel {
+            self.headerImageView.sd_setImage(with: URL(string: model.user_head))
+            self.nickNameLabel.text = model.user_name
+            self.genderLabel.text = model.user_sex
+            if model.user_sex == "女" {
+                self.iconImageView.image = UIImage(named: "female")
+            } else {
+                self.iconImageView.image = UIImage(named: "male_small")
+            }
+        }
     }
     override func initWithUI() {
         self.view.backgroundColor = UIColor(hex: "#619EFF")
@@ -137,7 +146,9 @@ class UnlockLenchaiVC: BaseViewController {
     }
     
     @objc func unlock_btnClick() {
-        self.navigationController?.pushViewController(FachaiDetailsVC(), animated: true)
+        let vc = FachaiDetailsVC()
+        vc.dataModel = self.dataModel
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func no_btnClick() {

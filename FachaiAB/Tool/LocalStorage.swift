@@ -16,7 +16,7 @@ class LocalStorage {
         case userAge
         /// 是否同意隐私政策
         case isPrivacyPolicy
-        
+        case phoneNumber
         
         /// 是否登录(退出登录需要清除)
         case isLogin
@@ -38,14 +38,24 @@ class LocalStorage {
         case full
     }
     
+    // 存储手机号
+    static func savePhoneNumber(_ phoneNumber: String) {
+        UserDefaults.standard.set(phoneNumber, forKey: "\(StorageKey.phoneNumber.rawValue)-\(LocalStorage.getDeviceToken())")
+    }
+    
+    // 获取手机号
+    static func getPhoneNumber() -> String? {
+        return UserDefaults.standard.string(forKey: "\(StorageKey.phoneNumber.rawValue)-\(LocalStorage.getDeviceToken())")
+    }
+    
     // 存储用户名
     static func saveUserName(_ name: String) {
-        UserDefaults.standard.set(name, forKey: StorageKey.userName.rawValue)
+        UserDefaults.standard.set(name, forKey: "\(StorageKey.userName.rawValue)-\(LocalStorage.getDeviceToken())")
     }
     
     // 获取用户名
     static func getUserName() -> String? {
-        return UserDefaults.standard.string(forKey: StorageKey.userName.rawValue)
+        return UserDefaults.standard.string(forKey: "\(StorageKey.userName.rawValue)-\(LocalStorage.getDeviceToken())")
     }
     
     // 存储用户年龄
@@ -120,7 +130,11 @@ class LocalStorage {
     }
     /// 获取默认Tab
     static func getDefaultTab() -> Int {
-        return UserDefaults.standard.integer(forKey: StorageKey.defaultTab.rawValue)
+        let value = UserDefaults.standard.integer(forKey: StorageKey.defaultTab.rawValue)
+        if value == 1 {
+            return 2
+        }
+        return 1
     }
     
     
@@ -149,6 +163,57 @@ class LocalStorage {
     /// 获取用户Key
     static func getFull() -> String {
         return UserDefaults.standard.string(forKey: StorageKey.full.rawValue) ?? ""
+    }
+    
+    static func saveBlackList(_ string: String) {
+            var currentArray = loadBlackList()
+            currentArray.append(string)
+            
+            let defaults = UserDefaults.standard
+            defaults.set(currentArray, forKey: LocalStorage.getDeviceToken())
+            defaults.synchronize()
+        }
+        
+        static func loadBlackList() -> [String] {
+            let defaults = UserDefaults.standard
+            return defaults.array(forKey: LocalStorage.getDeviceToken()) as? [String] ?? []
+        }
+    
+    /// 保存脸猜全部
+    static func saveTotalFachaiCaiCount(number: Int) {
+        UserDefaults.standard.set(number, forKey: "\(LocalStorage.getDeviceToken())_Fachai_count")
+    }
+    
+    static func getTotalFachaiCount() -> Int {
+        UserDefaults.standard.integer(forKey: "\(LocalStorage.getDeviceToken())_Fachai_count")
+    }
+    /// 保存脸猜成功
+    static func saveSuccessFachaiCount(number: Int) {
+        UserDefaults.standard.set(number, forKey: "\(LocalStorage.getDeviceToken())_Fachai_success_count")
+    }
+    
+    static func getSuccessFachaiCount() -> Int {
+        UserDefaults.standard.integer(forKey: "\(LocalStorage.getDeviceToken())_Fachai_success_count")
+    }
+    
+    // ==============
+    /// 保存连猜全部
+    static func saveTotalLianCaiCount(number: Int) {
+        UserDefaults.standard.set(number, forKey: "\(LocalStorage.getDeviceToken())_LianCai_count")
+    }
+    
+    static func getTotalLianCaiCount() -> Int {
+        UserDefaults.standard.integer(forKey: "\(LocalStorage.getDeviceToken())_LianCai_count")
+    }
+    
+    /// 保存连猜成功
+    static func saveSuccessLianCaiCount(number: Int) {
+        UserDefaults.standard.set(number, forKey: "\(LocalStorage.getDeviceToken())_LianCai_success_count")
+    }
+
+    
+    static func getSuccessLianCaiCount() -> Int {
+        UserDefaults.standard.integer(forKey: "\(LocalStorage.getDeviceToken())_LianCai_success_count")
     }
     
     

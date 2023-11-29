@@ -85,6 +85,18 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
 
 class CustomTabBar: UITabBar {
     override func layoutSubviews() {
+        self.backgroundColor = .black
+        for vi in self.subviews {
+            print("vi = \(vi)")
+            if String(describing: type(of: vi)) == "_UIBarBackground" {
+                vi.isHidden = true
+            }
+        }
+        if #available(iOS 13.0, *) {
+            standardAppearance.backgroundEffect = nil
+        } else {
+            // Fallback on earlier versions
+        }
         super.layoutSubviews()
         for subview in subviews {
             if let label = subview as? UILabel {

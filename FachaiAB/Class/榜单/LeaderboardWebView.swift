@@ -44,9 +44,32 @@ class LeaderboardWebView: BaseViewController, WKNavigationDelegate, WKScriptMess
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        if #available(iOS 13.0, *) {
+            let tabbarAppearance = UITabBarAppearance()
+            tabbarAppearance.configureWithOpaqueBackground()
+            tabbarAppearance.backgroundColor = .black
+            UITabBar.appearance().standardAppearance = tabbarAppearance
+            self.tabBarItem.standardAppearance = tabbarAppearance
+            if #available(iOS 15.0, *) {
+                self.tabBarItem.scrollEdgeAppearance = tabbarAppearance
+            }
+        } else if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.shadowColor = UIColor.clear
+            appearance.backgroundColor = UIColor.black
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+            UITabBar.appearance().standardAppearance = appearance
+
+        }
+            
     }
     override func initWithUI() {
         self.view.addSubview(self.webView)
+        self.webView.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
         if let url = URL(string: urlStr) {
             var request = URLRequest(url: url)
             // 根据需要添加不同的 Accept 头部信息
@@ -82,6 +105,7 @@ class LeaderboardWebView: BaseViewController, WKNavigationDelegate, WKScriptMess
             make.left.equalToSuperview().offset(14.auto())
             make.centerY.equalToSuperview()
         }
+//        back_btn.isHidden = false
     }
     // 可选：处理网页加载过程中的事件
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
@@ -90,11 +114,20 @@ class LeaderboardWebView: BaseViewController, WKNavigationDelegate, WKScriptMess
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("网页加载完成")
-        self.back_btn.isHidden = isWebViewAtHome()
+        self.back_btn.isHidden = false
         if let title = webView.title {
             self.titleLabel.text = title.count > 0 ? title: "榜单"
         }
     }
+    func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+        print("接收到服务器跳转请求即服务重定向时之后调用")
+    }
+    // 根据WebView对于即将跳转的HTTP请求头信息和相关信息来决定是否跳转
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        print("根据WebView对于即将跳转的HTTP请求头信息和相关信息来决定是否跳转")
+        decisionHandler(.allow)
+    }
+    
     // 检查当前页面是否为首页
     func isWebViewAtHome() -> Bool {
         let history = webView.backForwardList

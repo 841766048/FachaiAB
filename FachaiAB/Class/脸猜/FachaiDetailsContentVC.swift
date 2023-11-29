@@ -75,9 +75,62 @@ class FachaiDetailsContentVC: BaseViewController {
         label.textColor = UIColor(hex: "#AFAFAF")
         return label
     }()
+    var dataModel: FachaiModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "用户详情"
+        
+        if let model = self.dataModel {
+            self.headerImageView.sd_setImage(with: URL(string: model.user_head))
+            self.addressLabel.text = model.user_city
+            self.nickNameLabel.text = model.user_name
+            self.genderLabel.text = model.user_sex
+            if model.user_sex == "女" {
+                self.iconImageView.image = UIImage(named: "female")
+            } else {
+                self.iconImageView.image = UIImage(named: "male_small")
+            }
+            let contentView = UIView()
+            scrollView.addSubview(contentView)
+            
+            var lastView: UIView?
+            for label in model.user_label {
+                let paddedLabel = PaddedLabel()
+                paddedLabel.text = label
+                paddedLabel.textColor = .white
+                paddedLabel.font = .systemFont(ofSize: 10)
+                paddedLabel.backgroundColor = UIColor(hex: "#4272D7")
+                
+                paddedLabel.leftPadding = 8.auto()
+                paddedLabel.rightPadding = 8.auto()
+                contentView.addSubview(paddedLabel)
+                paddedLabel.snp.makeConstraints { make in
+                    if let vi = lastView {
+                        make.left.equalTo(vi.snp.right).offset(5.auto())
+                    } else {
+                        make.left.equalToSuperview().offset(15.auto())
+                    }
+                    make.centerY.equalToSuperview()
+                    make.height.equalTo(18.auto())
+                }
+                paddedLabel.roundCorners(radius: 7.auto())
+                lastView = paddedLabel
+            }
+            contentView.snp.makeConstraints { make in
+                make.left.right.top.equalToSuperview()
+                make.height.equalTo(18.auto())
+                if let vi = lastView {
+                    make.right.equalTo(vi.snp.right).offset(15.auto())
+                } else {
+                    make.right.equalToSuperview()
+                }
+            }
+            scrollView.snp.makeConstraints { make in
+                make.right.equalTo(contentView.snp.right).priority(.low)
+                make.right.greaterThanOrEqualTo(bgView)
+            }
+            self.desLabel.text = "交友宣言\n\(model.user_declaration)"
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -145,42 +198,6 @@ class FachaiDetailsContentVC: BaseViewController {
         let contentView = UIView()
         scrollView.addSubview(contentView)
         
-        var lastView: UIView?
-        for index in 0...5 {
-            let paddedLabel = PaddedLabel()
-            paddedLabel.text = "Hello, World!"
-            paddedLabel.textColor = .white
-            paddedLabel.font = .systemFont(ofSize: 10)
-            paddedLabel.backgroundColor = UIColor(hex: "#4272D7")
-            
-            paddedLabel.leftPadding = 8.auto()
-            paddedLabel.rightPadding = 8.auto()
-            contentView.addSubview(paddedLabel)
-            paddedLabel.snp.makeConstraints { make in
-                if let vi = lastView {
-                    make.left.equalTo(vi.snp.right).offset(5.auto())
-                } else {
-                    make.left.equalToSuperview().offset(15.auto())
-                }
-                make.centerY.equalToSuperview()
-                make.height.equalTo(18.auto())
-            }
-            paddedLabel.roundCorners(radius: 7.auto())
-            lastView = paddedLabel
-        }
-        contentView.snp.makeConstraints { make in
-            make.left.right.top.equalToSuperview()
-            make.height.equalTo(18.auto())
-            if let vi = lastView {
-                make.right.equalTo(vi.snp.right).offset(15.auto())
-            } else {
-                make.right.equalToSuperview()
-            }
-        }
-        scrollView.snp.makeConstraints { make in
-            make.right.equalTo(contentView.snp.right).priority(.low)
-            make.right.greaterThanOrEqualTo(bgView)
-        }
         
         self.view.addSubview(self.desLabel)
         desLabel.snp.makeConstraints { make in
@@ -190,12 +207,28 @@ class FachaiDetailsContentVC: BaseViewController {
         }
         desLabel.text = "交友宣言\n千山万水，无数黑夜，等一轮明月"
         
-        self.view.addSubview(self.checkBtb)
-        checkBtb.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(60.auto())
-            make.right.equalToSuperview().offset(-60.auto())
-            make.top.equalTo(desLabel.snp.bottom).offset(20.auto())
-            make.height.equalTo(44.auto())
+        if LocalStorage.loadBlackList().contains(self.dataModel?.id ?? "") {
+            let label = UILabel()
+            label.textAlignment = .center
+            label.numberOfLines = 0
+            label.font = .systemFont(ofSize: 12)
+            label.textColor = UIColor(hex: "#AFAFAF")
+            label.text = "您已经拉黑对方";
+            self.view.addSubview(label)
+            label.snp.makeConstraints { make in
+                make.left.equalToSuperview().offset(60.auto())
+                make.right.equalToSuperview().offset(-60.auto())
+                make.top.equalTo(desLabel.snp.bottom).offset(20.auto())
+                make.height.equalTo(44.auto())
+            }
+        } else {
+            self.view.addSubview(self.checkBtb)
+            checkBtb.snp.makeConstraints { make in
+                make.left.equalToSuperview().offset(60.auto())
+                make.right.equalToSuperview().offset(-60.auto())
+                make.top.equalTo(desLabel.snp.bottom).offset(20.auto())
+                make.height.equalTo(44.auto())
+            }
         }
     }
     
@@ -207,7 +240,10 @@ class FachaiDetailsContentVC: BaseViewController {
             let alertController = UIAlertController(title: "", message: "拉黑后，双方无法查看对方微信号", preferredStyle: .alert)
             
             let cancelAction = UIAlertAction(title: "拉黑", style: .default) { _ in
-                
+                FachaiViewModel.submitBlack {
+                    LocalStorage.saveBlackList(self.dataModel?.id ?? "")
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
             }
             alertController.addAction(cancelAction)
             
@@ -222,7 +258,7 @@ class FachaiDetailsContentVC: BaseViewController {
     }
     
     @objc func checkClcik() {
-        let msg = "对方的微信号是\nlove123123"
+        let msg = "对方的微信号是\n\(dataModel?.id ?? "")"
         let alertController = UIAlertController(title: "", message: msg, preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "关闭", style: .cancel) { _ in

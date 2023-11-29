@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		652ED9472B137AC300A112B3 /* FachaiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652ED9462B137AC300A112B3 /* FachaiViewModel.swift */; };
+		652ED9502B14518100A112B3 /* LenchaiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652ED94F2B14518100A112B3 /* LenchaiViewModel.swift */; };
 		659C66772B0D020A00074930 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66762B0D020A00074930 /* ViewController.swift */; };
 		659C667A2B0D020A00074930 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 659C66782B0D020A00074930 /* Main.storyboard */; };
 		659C667C2B0D020B00074930 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 659C667B2B0D020B00074930 /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		652ED9462B137AC300A112B3 /* FachaiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FachaiViewModel.swift; sourceTree = "<group>"; };
+		652ED94F2B14518100A112B3 /* LenchaiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenchaiViewModel.swift; sourceTree = "<group>"; };
 		659C666F2B0D020A00074930 /* FachaiAB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FachaiAB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		659C66762B0D020A00074930 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		659C66792B0D020A00074930 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -161,6 +165,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		652ED9452B137A1C00A112B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				652ED9462B137AC300A112B3 /* FachaiViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		652ED94E2B14517300A112B3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				652ED94F2B14518100A112B3 /* LenchaiViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		659C66662B0D020A00074930 = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +276,7 @@
 		659C66952B0D024200074930 /* 脸猜 */ = {
 			isa = PBXGroup;
 			children = (
+				652ED9452B137A1C00A112B3 /* Model */,
 				659C66962B0D024200074930 /* PopUp */,
 				659C66982B0D024200074930 /* FachaiVC.swift */,
 				659C66992B0D024200074930 /* FachaiDetailsVC.swift */,
@@ -275,6 +296,7 @@
 		659C669B2B0D024200074930 /* 连猜 */ = {
 			isa = PBXGroup;
 			children = (
+				652ED94E2B14517300A112B3 /* ViewModel */,
 				659C669C2B0D024200074930 /* LenchaiVC.swift */,
 				659C669D2B0D024200074930 /* UnlockLenchaiVC.swift */,
 			);
@@ -483,6 +505,7 @@
 				659C66B62B0D024200074930 /* DataResultView.swift in Sources */,
 				65C389EA2B0DB8990046B460 /* LoginViewModel.swift in Sources */,
 				65C389F02B0EE0090046B460 /* MineViewModel.swift in Sources */,
+				652ED9472B137AC300A112B3 /* FachaiViewModel.swift in Sources */,
 				659C66CC2B0D024200074930 /* Network.swift in Sources */,
 				659C66BE2B0D024200074930 /* LenchaiVC.swift in Sources */,
 				659C66C62B0D024200074930 /* UIColor+Extension.swift in Sources */,
@@ -496,6 +519,7 @@
 				659C66C12B0D024200074930 /* BaseTabBarController.swift in Sources */,
 				659C66CB2B0D024200074930 /* AppDelegate.swift in Sources */,
 				659C66C52B0D024200074930 /* PrivacyPolicyVC.swift in Sources */,
+				652ED9502B14518100A112B3 /* LenchaiViewModel.swift in Sources */,
 				659C66BA2B0D024200074930 /* MoreShowView.swift in Sources */,
 				659C66B42B0D024200074930 /* MineVC.swift in Sources */,
 				659C66CA2B0D024200074930 /* Tool.swift in Sources */,

@@ -391,7 +391,10 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
                             LocalStorage.saveFull(model.full)
                             LocalStorage.saveDefaultTab(Int(model.tab) ?? 0)
                         }
-                        self.navigationController?.popViewController(animated: true)
+                        TabBarController.instance.tab = BaseTabBarController()
+                        let notification = Notification(name: .switchRootViewController)
+                        NotificationCenter.default.post(notification)
+//                        self.navigationController?.popViewController(animated: true)
 //                        let notification = Notification(name: .switchRootViewController)
 //                        NotificationCenter.default.post(notification)
                         
@@ -445,6 +448,10 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
                 return
             }
             LoginViewModel.codeLogin(phone, code: code) { model in
+                if phone.count == 11 {
+                    let str = self.hidePhoneNumber(phone)
+                    LocalStorage.savePhoneNumber(str)
+                }
                 LocalStorage.saveDefaultTab(model.tab)
                 LocalStorage.saveKefu(model.kefu)
                 LocalStorage.saveIsLogin(true)
@@ -453,7 +460,10 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
                     LocalStorage.saveFull(model.full)
                     LocalStorage.saveDefaultTab(Int(model.tab) ?? 0)
                 }
-                self.navigationController?.popViewController(animated: true)
+                TabBarController.instance.tab = BaseTabBarController()
+                let notification = Notification(name: .switchRootViewController)
+                NotificationCenter.default.post(notification)
+//                self.navigationController?.popViewController(animated: true)
 //                let notification = Notification(name: .switchRootViewController)
 //                NotificationCenter.default.post(notification)
             }
@@ -462,7 +472,18 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
         }
         
     }
-    
+    func hidePhoneNumber(_ phoneNumber: String) -> String {
+        guard phoneNumber.count >= 7 else {
+            return phoneNumber
+        }
+
+        let prefix = String(phoneNumber.prefix(3)) // 保留前三位数字
+        let suffix = String(phoneNumber.suffix(4)) // 保留后四位数字
+        let hidden = String(repeating: "*", count: phoneNumber.count - 7) // 将中间部分替换为 "*"
+
+        let hiddenPhoneNumber = prefix + hidden + suffix
+        return hiddenPhoneNumber
+    }
     @objc func selectClick(_ send: UIButton) {
         send.isSelected = !send.isSelected
         self.isSelect = send.isSelected

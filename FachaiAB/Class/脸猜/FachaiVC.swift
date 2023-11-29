@@ -40,13 +40,9 @@ class FachaiVC: BaseViewController {
         let ims = [self.showImageView, self.oneImageView, self.twoImageView, self.threeImageView]
         return ims
     }()
-    let image_urls: [String] = [
-        "https://img.keaitupian.cn/newupload/11/1700039147326498.jpg",
-        "https://img.keaitupian.cn/newupload/11/1700039147188099.jpg",
-        "https://img.keaitupian.cn/newupload/11/1700039152467686.jpg",
-        "https://img.keaitupian.cn/newupload/11/1700039153858200.jpg"
-    ]
     let bgView = UIView()
+    var dataSource: [FachaiModel] = []
+    var dataModel: FachaiModel?
     lazy var locateInfoView: UIView = {
         let topView = UIView()
         topView.backgroundColor = UIColor(hex: "#191919")
@@ -77,6 +73,7 @@ class FachaiVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initWithShowImageView()
+        getData()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -126,6 +123,12 @@ class FachaiVC: BaseViewController {
     
     @objc func imageClick(_ send: UIButton) {
         print("send.tag = \(send.tag )")
+        var total_count = LocalStorage.getTotalFachaiCount()
+        total_count += 1
+        LocalStorage.saveTotalFachaiCaiCount(number: total_count)
+        
+        var success_count = LocalStorage.getSuccessFachaiCount()
+        
         let full = LocalStorage.getFull()
         if full.count > 0 {
             let alertController = UIAlertController(title: "", message: full, preferredStyle: .alert)
@@ -148,22 +151,17 @@ class FachaiVC: BaseViewController {
             }
             if let model = dataModel, model.isShow {
                print("点击正确")
-                self.navigationController?.pushViewController(FachaiDetailsVC(), animated: true)
+                success_count += 1
+                LocalStorage.saveSuccessFachaiCount(number: success_count)
+                let vc = FachaiDetailsVC()
+                vc.dataModel = self.dataModel
+                self.navigationController?.pushViewController(vc, animated: true)
             }
             updateShowImageView()
         }
     }
     func initWithShowImageView() {
         let imageWidth = screenWidth/2
-        let arr: [ShowImageModel] = [
-            ShowImageModel(url: "https://img.keaitupian.cn/newupload/11/1700039147188099.jpg", isShow: false),
-            ShowImageModel(url: "https://img.keaitupian.cn/newupload/11/1700039152467686.jpg", isShow: false),
-            ShowImageModel(url: "https://img.keaitupian.cn/newupload/11/1700039147326498.jpg", isShow: true),
-        ]
-        let data_arr = arr.shuffled()
-        self.oneImageView.dataModel = data_arr[0]
-        self.twoImageView.dataModel = data_arr[1]
-        self.threeImageView.dataModel = data_arr[2]
         let dataSource = self.images.shuffled()
         let contentMode: [UIView.ContentMode] = [.topLeft, .topRight, .bottomLeft, .bottomRight]
         for index in dataSource.indices {
@@ -201,8 +199,8 @@ class FachaiVC: BaseViewController {
                 }
             }
             image.layer.masksToBounds = true
+            image.isHidden = true
         }
-        configurationData()
     }
     func updateShowImageView() {
         let imageWidth = screenWidth/2
@@ -226,22 +224,41 @@ class FachaiVC: BaseViewController {
     }
     
     func configurationData() {
-        let arr: [ShowImageModel] = [
-            ShowImageModel(url: "https://img.keaitupian.cn/newupload/11/1700039147188099.jpg", isShow: false),
-            ShowImageModel(url: "https://img.keaitupian.cn/newupload/11/1700039152467686.jpg", isShow: false),
-            ShowImageModel(url: "https://img.keaitupian.cn/newupload/11/1700039147326498.jpg", isShow: true),
-        ]
-        self.showImageView.dataModel = ShowImageModel(url: "https://img.keaitupian.cn/newupload/11/1700039147326498.jpg", isShow: true)
-        let data_arr = arr.shuffled()
-        self.oneImageView.dataModel = data_arr[0]
-        self.twoImageView.dataModel = data_arr[1]
-        self.threeImageView.dataModel = data_arr[2]
+        let index = Int.random(in: 0..<self.dataSource.count)
+        self.dataModel = self.dataSource[index]
+        if let model = self.dataModel {
+            self.oneImageView.isHidden = false
+            self.twoImageView.isHidden = false
+            self.threeImageView.isHidden = false
+            self.showImageView.isHidden = false
+            let arr: [ShowImageModel] = [
+                ShowImageModel(url: model.user_head, isShow: false),
+                ShowImageModel(url: model.user_head, isShow: false),
+                ShowImageModel(url: model.user_head, isShow: true),
+            ]
+            self.showImageView.dataModel = ShowImageModel(url: model.user_head, isShow: true)
+            let data_arr = arr.shuffled()
+            self.oneImageView.dataModel = data_arr[0]
+            self.twoImageView.dataModel = data_arr[1]
+            self.threeImageView.dataModel = data_arr[2]
+        }
+        
     }
     
     @objc func openClick() {
         LocationManager.shared.openAppSettings()
     }
     
+    func getData() {
+        FachaiViewModel.getFachaiData(completionHandler: { result in
+            for item in result {
+                if let model = item {
+                    self.dataSource.append(model)
+                }
+            }
+            self.configurationData()
+        })
+    }
 }
 
 class ShowImageModel: NSObject {
@@ -263,3 +280,4 @@ class GuessImageView: UIImageView {
         }
     }
 }
+

@@ -56,6 +56,11 @@ class LeaderboardManagerVC: BaseViewController, WKNavigationDelegate, WKScriptMe
         webView.reload()
     }
     func withUI() {
+        self.view.addSubview(self.webView)
+        self.webView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalToSuperview().offset(navigationBarTotalHeight)
+        }
         DispatchQueue.main.async {
             self.view.addSubview(self.webView)
             let urlString = Network.instance.getH5()
@@ -118,6 +123,22 @@ class LeaderboardManagerVC: BaseViewController, WKNavigationDelegate, WKScriptMe
         let history = webView.backForwardList
         return !webView.canGoBack && history.backList.count == 0
     }
+    func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+        print("接收到服务器跳转请求即服务重定向时之后调用")
+    }
+    // 根据WebView对于即将跳转的HTTP请求头信息和相关信息来决定是否跳转
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        print("根据WebView对于即将跳转的HTTP请求头信息和相关信息来决定是否跳转")
+        decisionHandler(.allow)
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        let urlStr = navigationResponse.response.url?.absoluteString
+        print("当前跳转地址：\(urlStr)")
+        decisionHandler(.allow)
+    }
+    
+    
     func configureTransparentNavigationBar() {
         if #available(iOS 15.0, *) {
             let var_appearance = UINavigationBarAppearance()
@@ -147,12 +168,16 @@ class LeaderboardManagerVC: BaseViewController, WKNavigationDelegate, WKScriptMe
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print("message.body = \(message.body)")
+        print("message.name = \(message.name)")
+        print("message.frameInfo.request = \(message.frameInfo.request)")
+        self.back_btn.isHidden = isWebViewAtHome()
         if message.name == "startFunction" {
             if let dict = message.body as? [String: Any] {
-                let type = dict["type"] as? Int ?? 0
+                let type = Int(dict["type"] as? String ?? "0") ?? 0
                 if type == 5 {
                     let url_str = dict["url"] as? String ?? ""
-                    if let url = URL(string: url_str), UIApplication.shared.canOpenURL(url) {
+                    if let url = URL(string: url_str) {
                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
                     }
                 } else if type == 15 {

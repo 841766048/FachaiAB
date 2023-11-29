@@ -54,7 +54,7 @@ class PersonalInforVC: BaseViewController {
     }()
     lazy var nickNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "霹雳小子"
+        label.text = "独角兽"
         label.font = .systemFont(ofSize: 15)
         label.textColor = .white
         return label
@@ -114,13 +114,19 @@ class PersonalInforVC: BaseViewController {
             make.left.right.equalToSuperview()
             make.top.equalTo(headView.snp.bottom).offset(10.auto())
         }
-        
+        if let img = loadImageFromDocumentsDirectory(forKey: LocalStorage.getDeviceToken()) {
+            self.headImageView.image = img
+        }
+        if let nickName = LocalStorage.getUserName() {
+            self.nickNameLabel.text = nickName
+        }
     }
     
     @objc func headBtnClick() {
         CameraUtil.capturePhoto { image in
             if let img = image {
                 self.headImageView.image = img
+                _ = saveImageToDocumentsDirectory(image: img, forKey: LocalStorage.getDeviceToken())
             }
         }
     }
@@ -139,6 +145,8 @@ class PersonalInforVC: BaseViewController {
             if let textField = alertController.textFields?.first, let enteredText = textField.text {
                 // Do something with enteredText
                 print("Entered text: \(enteredText)")
+                LocalStorage.saveUserName(enteredText)
+                self.nickNameLabel.text = enteredText
             }
         }
         
@@ -177,7 +185,6 @@ class CameraUtil: NSObject, UINavigationControllerDelegate, UIImagePickerControl
         } else {
             captureCompletionBlock?(nil)
         }
-        
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -185,3 +192,59 @@ class CameraUtil: NSObject, UINavigationControllerDelegate, UIImagePickerControl
         picker.dismiss(animated: true, completion: nil)
     }
 }
+func saveImageToDocumentsDirectory(image: UIImage, forKey key: String) -> URL? {
+    // 获取 Documents 目录路径
+    let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    
+    if let documentsDirectory = documentsDirectory {
+        // 创建保存图片的 URL
+        let fileURL = documentsDirectory.appendingPathComponent("\(key).jpg")
+        
+        do {
+            // 将图片转换为 Data
+            if let data = image.jpegData(compressionQuality: 1.0) {
+                // 将图片 Data 保存到指定路径
+                try data.write(to: fileURL)
+                return fileURL // 返回保存图片的 URL
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    return nil
+}
+
+func loadImageFromDocumentsDirectory(forKey key: String) -> UIImage? {
+    // 获取 Documents 目录路径
+    let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    
+    if let documentsDirectory = documentsDirectory {
+        // 创建指定图片路径
+        let fileURL = documentsDirectory.appendingPathComponent("\(key).jpg")
+        
+        do {
+            // 从路径加载图片 Data
+            let imageData = try Data(contentsOf: fileURL)
+            // 将 Data 转换为 UIImage
+            let image = UIImage(data: imageData)
+            return image // 返回获取到的图片
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    return nil
+}
+
+//// 保存图片到沙盒路径下
+//if let image = UIImage(named: "yourImage") {
+//    if let imageURL = saveImageToDocumentsDirectory(image: image, forKey: "yourKey") {
+//        print("Image saved at: \(imageURL)")
+//    }
+//}
+//
+//// 从沙盒路径下获取图片
+//if let loadedImage = loadImageFromDocumentsDirectory(forKey: "yourKey") {
+//    print("Loaded Image: \(loadedImage)")
+//}
