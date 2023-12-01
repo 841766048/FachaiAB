@@ -687,6 +687,7 @@
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FachaiAB/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "会玩吧双人欢乐趣猜";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "我们可以通过您的位置向您推荐周边的朋友";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "我们可以通过您的位置信息,向您推荐周边的朋友";
 				INFOPLIST_KEY_NSLocationUsageDescription = "我们可以通过您的位置信息,向您推荐周边的朋友";
@@ -698,6 +699,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = UIUserInterfaceStyleLight;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -706,7 +708,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -715,7 +717,6 @@
 					"-l\"HandyJSON\"",
 					"-l\"IQKeyboardManagerSwift\"",
 					"-l\"Loaf\"",
-					"-l\"LookinServer\"",
 					"-l\"SDWebImage\"",
 					"-l\"SnapKit\"",
 					"-l\"UIColor_Hex_Swift\"",
@@ -755,11 +756,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fachaiab.qw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "FachaiAB/FachaiAB-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -771,13 +775,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FachaiAB/FachaiAB.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2FXAU7VW4X;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = P5FUTUTHYK;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FachaiAB/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "会玩吧双人欢乐趣猜";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "我们可以通过您的位置向您推荐周边的朋友";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "我们可以通过您的位置信息,向您推荐周边的朋友";
 				INFOPLIST_KEY_NSLocationUsageDescription = "我们可以通过您的位置信息,向您推荐周边的朋友";
@@ -789,6 +797,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = UIUserInterfaceStyleLight;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -797,7 +806,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -806,7 +816,6 @@
 					"-l\"HandyJSON\"",
 					"-l\"IQKeyboardManagerSwift\"",
 					"-l\"Loaf\"",
-					"-l\"LookinServer\"",
 					"-l\"SDWebImage\"",
 					"-l\"SnapKit\"",
 					"-l\"UIColor_Hex_Swift\"",
@@ -844,12 +853,17 @@
 					"-weak_framework",
 					"\"Network\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fachaiab.qw;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Matilda.FunGuessing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = FunGuessing;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "FachaiAB/FachaiAB-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

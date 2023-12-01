@@ -383,6 +383,7 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
                 print("成功 = \(String(describing: result.data))")
                 if let token = result.data?["token"] as? String {
                     LoginViewModel.oneClickLogin(token) { model in
+                        LocalStorage.savePhoneNumber(LocalStorage.phoneNumber)
                         LocalStorage.saveDefaultTab(model.tab)
                         LocalStorage.saveKefu(model.kefu)
                         LocalStorage.saveIsLogin(true)

@@ -121,7 +121,7 @@ class MineVC: BaseViewController {
         view.backgroundColor = UIColor(hex: "#EC5399")
         return view
     }()
-    
+    let contacts_btn = UIButton()
     override func viewDidLoad() {
         super.viewDidLoad()
         let des_arr = [
@@ -261,8 +261,7 @@ class MineVC: BaseViewController {
             make.top.equalTo(btn_bg_view.snp.bottom).offset(20.auto())
         }
         
-        let contacts_btn = UIButton()
-        contacts_btn.setTitle("010-05938843", for: .normal)
+//        contacts_btn.setTitle("010-05938843", for: .normal)
         contacts_btn.setTitleColor(UIColor(hex: "#3F6CCB"), for: .normal)
         contacts_btn.addTarget(self, action: #selector(contacts_btnClick), for: .touchUpInside)
         contacts_btn.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
@@ -271,6 +270,7 @@ class MineVC: BaseViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(label.snp.bottom).offset(5.auto())
         }
+        contacts_btn.setTitle(LocalStorage.getKefu(), for: .normal)
     }
     
     @objc func btnClick(_ send: UIButton) {

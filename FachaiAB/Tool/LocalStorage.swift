@@ -8,6 +8,7 @@
 import Foundation
 
 class LocalStorage {
+    static var phoneNumber: String = ""
     // UserDefaults 键(key)的定义
     enum StorageKey: String {
         /// 昵称
@@ -134,7 +135,7 @@ class LocalStorage {
         if value == 1 {
             return 2
         }
-        return 1
+        return 0
     }
     
     

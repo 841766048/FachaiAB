@@ -2,13 +2,9 @@ PODS:
   - Alamofire (5.8.1)
   - AutoInch (2.4.1)
   - CL_ShanYanSDK (2.3.6.5)
-  - FLEX (5.22.10)
   - HandyJSON (5.0.2)
   - IQKeyboardManagerSwift (6.5.16)
   - Loaf (0.7.0)
-  - LookinServer (1.2.4):
-    - LookinServer/Core (= 1.2.4)
-  - LookinServer/Core (1.2.4)
   - SDWebImage (5.18.5):
     - SDWebImage/Core (= 5.18.5)
   - SDWebImage/Core (5.18.5)
@@ -23,11 +19,9 @@ DEPENDENCIES:
   - Alamofire
   - AutoInch
   - CL_ShanYanSDK
-  - FLEX
   - HandyJSON
   - IQKeyboardManagerSwift
   - Loaf
-  - LookinServer
   - SDWebImage
   - SnapKit
   - SVProgressHUD
@@ -39,11 +33,9 @@ SPEC REPOS:
     - Alamofire
     - AutoInch
     - CL_ShanYanSDK
-    - FLEX
     - HandyJSON
     - IQKeyboardManagerSwift
     - Loaf
-    - LookinServer
     - SDWebImage
     - SnapKit
     - SVProgressHUD
@@ -54,17 +46,15 @@ SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
   AutoInch: 4d69de92c4c54b71352d67d07dcb6d9e5d1e546a
   CL_ShanYanSDK: e33ae72e33ee2131cda4ec24305e30c45a57ce48
-  FLEX: f21ee4f498eed3f8a1eded66b21939fd3b7a22ce
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
-  LookinServer: 00c7588043ed8e7ab64ce55b9fb747e51371ad06
   SDWebImage: 7ac2b7ddc5e8484c79aa90fc4e30b149d6a2c88f
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
   UIColor_Hex_Swift: 20cb4e8d51b63e168a9da6933bc5d39cd8fb4ab5
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 38a197482e45faebda718995f195687459479e50
+PODFILE CHECKSUM: 1c4d00d0b80d2a844d25c881a8f0d5b0d5e016c1
 
 COCOAPODS: 1.13.0

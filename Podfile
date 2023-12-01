@@ -17,8 +17,8 @@ target 'FachaiAB' do
   pod 'HandyJSON'
   pod 'SVProgressHUD'
   
-  pod 'FLEX', :configurations => ['Debug']
-  pod 'LookinServer'
+#  pod 'FLEX', :configurations => ['Debug']
+#  pod 'LookinServer'
 end
 
 post_install do |installer|
