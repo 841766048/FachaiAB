@@ -2,7 +2,7 @@
 //  LeaderboardManagerVC.swift
 //  FachaiAB
 //
-//  Created by 张海彬 on 2023/11/21.
+//  Created by   on 2023/11/21.
 //
 
 import UIKit
@@ -167,6 +167,7 @@ class LeaderboardManagerVC: BaseViewController, WKNavigationDelegate, WKScriptMe
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
+    
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         print("message.body = \(message.body)")
         print("message.name = \(message.name)")

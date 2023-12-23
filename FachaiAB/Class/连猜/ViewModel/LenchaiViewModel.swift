@@ -2,7 +2,7 @@
 //  LenchaiViewModel.swift
 //  FachaiAB
 //
-//  Created by 张海彬 on 2023/11/27.
+//  Created by   on 2023/11/27.
 //
 
 import UIKit

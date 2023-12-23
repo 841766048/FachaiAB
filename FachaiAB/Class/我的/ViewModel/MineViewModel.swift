@@ -2,7 +2,7 @@
 //  MineViewModel.swift
 //  FachaiAB
 //
-//  Created by 张海彬 on 2023/11/23.
+//  Created by   on 2023/11/23.
 //
 
 import Foundation

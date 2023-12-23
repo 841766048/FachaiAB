@@ -2,7 +2,7 @@
 //  LoginViewModel.swift
 //  FachaiAB
 //
-//  Created by 张海彬 on 2023/11/22.
+//  Created by   on 2023/11/22.
 //
 
 import Foundation
@@ -16,6 +16,8 @@ struct LoginModel: HandyJSON {
     /// 默认显示哪个tab页(重要)
     var tab: Int = 0
 }
+
+
 
 struct LoginViewModel {
     static func oneClickLogin(_ token: String, completionHandler: @escaping (LoginModel) -> Void) {
