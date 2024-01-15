@@ -111,33 +111,34 @@ class Network {
 }
 
 extension DataRequest {
-    func responseModel<T: HandyJSON>(_ type: T.Type, completionHandler: @escaping (DataResult<T>) -> Void) {
+    func responseModel<T: HandyJSON>(_ type: T.Type, isToast: Bool = true, completionHandler: @escaping (DataResult<T>) -> Void) {
         SVProgressHUD.dismiss()
         self.response { response in
             guard let data = response.data else {
-                completionHandler(DataResult(data: nil, error: "Date 不存在"))
+                completionHandler(DataResult(data: nil, code: 999, error: "Date 不存在"))
                 return
             }
             guard let jsonString = String(data: data, encoding: .utf8) else {
-                completionHandler(DataResult(data: nil, error: "json解析出错"))
+                completionHandler(DataResult(data: nil, code: 999, error: "json解析出错"))
                 return
             }
             
             guard let object = JSONDeserializer<ResultModel<T>>.deserializeFrom(json: jsonString) else {
-                completionHandler(DataResult(data: nil, error: "Json字符串不能转换为object"))
+                completionHandler(DataResult(data: nil, code: 999, error: "Json字符串不能转换为object"))
                 return
             }
             if object.code == 200 {
                 if let data = object.data  {
-                    completionHandler(DataResult(data: data, error: nil))
-                    return
+                    completionHandler(DataResult(data: data, code: 200, error: nil))
                 } else {
-                    toast(object.msg, state: .info)
-                    completionHandler(DataResult(data: nil, error: nil))
+                    if isToast {
+                        toast(object.msg, state: .info)
+                    }
+                    completionHandler(DataResult(data: nil, code: 200, error: nil))
                 }
                 
             } else {
-                completionHandler(DataResult(data: nil, error: object.msg))
+                completionHandler(DataResult(data: nil, code: object.code, error: object.msg))
             }
             
         }
@@ -166,6 +167,7 @@ extension DataRequest {
 
 struct DataResult<T: HandyJSON> {
     let data: T?
+    let code: Int?
     let error: String?
 }
 

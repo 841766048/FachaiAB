@@ -39,7 +39,7 @@ struct MineViewModel {
     /// 获取注销文案
     static func getCancellationCopy(_ completionHandler: @escaping (CancellationModel) -> Void) {
         Network.instance.Get(path: "sign/?a=index", params: ["key": LocalStorage.getUserKey()])
-            .responseModel(CancellationModel.self) { result in
+            .responseModel(CancellationModel.self, isToast: false) { result in
                 if let data = result.data {
                     completionHandler(data)
                 } else {

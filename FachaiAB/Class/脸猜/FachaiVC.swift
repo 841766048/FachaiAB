@@ -70,8 +70,14 @@ class FachaiVC: BaseViewController {
         button.roundCorners(radius: 12.auto())
         return topView
     }()
+    
+    var timer: Timer?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        timer = Timer.scheduledTimer(timeInterval: 120, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+        // 注册通知
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         initWithShowImageView()
         getData()
     }
@@ -81,12 +87,14 @@ class FachaiVC: BaseViewController {
         LocationManager.shared.fetchUserLocation { location in
             if let loc = location {
                 print("Latitude: \(loc.coordinate.latitude), Longitude: \(loc.coordinate.longitude)")
+                self.locateInfoView.isHidden = true
             } else {
                 self.locateInfoView.isHidden = LocationManager.shared.isLocationPermissionGranted
             }
             // 在这里处理获取到的位置信息
-            
         }
+        
+        self.locateInfoView.isHidden = LocationManager.shared.isLocationPermissionGranted
     }
     override func initWithUI() {
         super.initWithUI()
@@ -120,7 +128,25 @@ class FachaiVC: BaseViewController {
             make.top.equalTo(bgView.snp.bottom).offset(29.auto())
         }
     }
-    
+    @objc func timerAction() {
+        // 定时器触发时执行的任务
+        LocationManager.shared.fetchUserLocation { location in
+            if let loc = location {
+                print("Latitude: \(loc.coordinate.latitude), Longitude: \(loc.coordinate.longitude)")
+                LocalStorage.savelfi("\(loc.coordinate.longitude)")
+                LocalStorage.savelob("\(loc.coordinate.latitude)")
+                self.locateInfoView.isHidden = true
+            } else {
+                self.locateInfoView.isHidden = LocationManager.shared.isLocationPermissionGranted
+            }
+            // 在这里处理获取到的位置信息
+        }
+        
+    }
+    // 通知触发的方法
+    @objc func appWillEnterForeground() {
+        self.locateInfoView.isHidden = LocationManager.shared.isLocationPermissionGranted
+    }
     @objc func imageClick(_ send: UIButton) {
         print("send.tag = \(send.tag )")
         var total_count = LocalStorage.getTotalFachaiCount()
@@ -133,7 +159,7 @@ class FachaiVC: BaseViewController {
         if full.count > 0 {
             let alertController = UIAlertController(title: "", message: full, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "好的", style: .cancel) { _ in
-                
+                TabBarController.instance.tab.selectedIndex = 2
             }
             alertController.addAction(cancelAction)
             
@@ -224,6 +250,9 @@ class FachaiVC: BaseViewController {
     }
     
     func configurationData() {
+        if self.dataSource.count == 0 {
+            return
+        }
         let index = Int.random(in: 0..<self.dataSource.count)
         self.dataModel = self.dataSource[index]
         if let model = self.dataModel {

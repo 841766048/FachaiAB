@@ -33,9 +33,16 @@ struct LoginViewModel {
             }
     }
     
-    static func sendVerificationCode(_ mobile: String) {
+    static func sendVerificationCode(_ mobile: String, completionHandler: @escaping (Bool) -> Void) {
         Network.instance.Post(path: "sign/?a=index", params: ["mobile": mobile])
-            .responseModel(LoginModel.self) { _ in }
+            .responseModel(LoginModel.self) { model in
+                if model.code == 200 {
+                    completionHandler(true)
+                } else {
+                    toast(model.error ?? "", state: .error)
+                    completionHandler(false)
+                }
+            }
     }
     
     static func codeLogin(_ mobile: String, code: String, completionHandler: @escaping (LoginModel) -> Void) {

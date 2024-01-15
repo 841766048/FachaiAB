@@ -16,7 +16,12 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     private var locationCompletion: ((CLLocation?) -> Void)?
     /// 判断用户是否允许定位权限
     var isLocationPermissionGranted: Bool {
-        return CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways
+        let val = CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways
+        if !val {
+            LocalStorage.savelfi("")
+            LocalStorage.savelob("")
+        }
+        return val
     }
     
     override private init() {

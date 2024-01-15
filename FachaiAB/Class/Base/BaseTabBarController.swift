@@ -17,10 +17,16 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
         initWithUI()
         setTabbar()
+        if let tabBarItems = self.tabBar.items {
+            for item in tabBarItems {
+                item.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)], for: .normal)
+                item.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)], for: .selected)
+            }
+        }
     }
     func initWithUI() {
-        let customTabBar = CustomTabBar()
-        setValue(customTabBar, forKey: "tabBar")
+//        let customTabBar = CustomTabBar()
+//        setValue(customTabBar, forKey: "tabBar")
         
         self.tabBar.tintColor = UIColor(hex: "#4272D7")
         self.tabBar.unselectedItemTintColor = UIColor(hex: "#999999")
@@ -40,6 +46,7 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
         tabBar.backgroundColor = UIColor(hex: "#191919")
         tabBar.barTintColor = UIColor(hex: "#191919")
         
+
     }
     
     func configurationNav(_ title: String, vc: UIViewController) -> BaseNavigationController {
@@ -61,6 +68,10 @@ class BaseTabBarController: UITabBarController, UITabBarControllerDelegate {
             let tabBarAppearance = UITabBarAppearance()
             //设置tabar背景色
             tabBarAppearance.backgroundColor = .black
+            // 设置普通状态下的字体大小
+            tabBarAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .semibold)]
+            // 设置选中状态下的字体大小
+            tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .semibold)]
             customTabBar.standardAppearance = tabBarAppearance
             if #available(iOS 15.0, *) {
                 customTabBar.scrollEdgeAppearance = tabBarAppearance
@@ -104,6 +115,7 @@ class CustomTabBar: UITabBar {
                 label.frame.origin.y = 24
             }
         }
+        
     }
     
     

@@ -21,7 +21,7 @@ class BaseNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTransparentNavigationBar()
-        // Do any additional setup after loading the view.
+        
     }
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if viewControllers.count > 0 {

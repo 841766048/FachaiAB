@@ -170,7 +170,7 @@ class LenchaiVC: BaseViewController {
         if full.count > 0 {
             let alertController = UIAlertController(title: "", message: full, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "好的", style: .cancel) { _ in
-                
+                TabBarController.instance.tab.selectedIndex = 2
             }
             alertController.addAction(cancelAction)
             
@@ -217,6 +217,7 @@ class LenchaiVC: BaseViewController {
         if full.count > 0 {
             let alertController = UIAlertController(title: "", message: full, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "好的", style: .cancel) { _ in
+                TabBarController.instance.tab.selectedIndex = 2
                 
             }
             alertController.addAction(cancelAction)

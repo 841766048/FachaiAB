@@ -16,9 +16,9 @@ target 'FachaiAB' do
   pod 'Alamofire'
   pod 'HandyJSON'
   pod 'SVProgressHUD'
-  
+  pod 'ReachabilitySwift'
 #  pod 'FLEX', :configurations => ['Debug']
-#  pod 'LookinServer'
+  pod 'LookinServer'
 end
 
 post_install do |installer|

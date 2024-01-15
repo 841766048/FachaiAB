@@ -37,8 +37,21 @@ class LocalStorage {
         case userKey
         /// 弹框文案
         case full
+        /// 是否第一次安装
+        case oneInstallation
     }
     
+    static func saveOneInstallation() {
+        UserDefaults.standard.set("1", forKey: StorageKey.oneInstallation.rawValue)
+    }
+    
+    static func getOneInstallation() -> Bool {
+        let value = UserDefaults.standard.string(forKey: StorageKey.oneInstallation.rawValue)
+        if value == "1" {
+            return false
+        }
+        return true
+    }
     // 存储手机号
     static func savePhoneNumber(_ phoneNumber: String) {
         UserDefaults.standard.set(phoneNumber, forKey: "\(StorageKey.phoneNumber.rawValue)-\(LocalStorage.getDeviceToken())")

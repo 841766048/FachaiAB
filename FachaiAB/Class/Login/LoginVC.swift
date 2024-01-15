@@ -176,8 +176,8 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
             oneClickLogin()
             isShow = false
         }
-        // 显示导航
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        // 隐藏导航
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     override func initWithUI() {
         super.initWithUI()
@@ -234,7 +234,7 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
             toast("请填写手机号", state: .info)
             return
         }
-        startCountdown()
+        
         requestVerificationCode()
     }
     // 一键登录
@@ -427,7 +427,11 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
     }
     
     func requestVerificationCode() {
-        LoginViewModel.sendVerificationCode(self.photoNumber.text!)
+        LoginViewModel.sendVerificationCode(self.photoNumber.text!, completionHandler: {[weak self] val in
+            if val {
+                self?.startCountdown()
+            }
+        })
     }
 
     @objc func login_btnClick() {
