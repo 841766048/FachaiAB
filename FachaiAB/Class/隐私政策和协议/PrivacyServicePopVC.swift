@@ -2,7 +2,7 @@
 //  PrivacyServicePopVC.swift
 //  FachaiAB
 //
-//  Created by 张海彬 on 2024/1/12.
+//  Created by   on 2024/1/12.
 //
 
 import UIKit

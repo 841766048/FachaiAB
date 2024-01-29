@@ -10,6 +10,7 @@
 		652B2CBB2B512C87005EB8B0 /* PrivacyServicePopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652B2CBA2B512C87005EB8B0 /* PrivacyServicePopVC.swift */; };
 		652ED9472B137AC300A112B3 /* FachaiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652ED9462B137AC300A112B3 /* FachaiViewModel.swift */; };
 		652ED9502B14518100A112B3 /* LenchaiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652ED94F2B14518100A112B3 /* LenchaiViewModel.swift */; };
+		658C72A02B591E5100CB729C /* QuanViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658C729F2B591E5100CB729C /* QuanViewVC.swift */; };
 		659C66772B0D020A00074930 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C66762B0D020A00074930 /* ViewController.swift */; };
 		659C667A2B0D020A00074930 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 659C66782B0D020A00074930 /* Main.storyboard */; };
 		659C667C2B0D020B00074930 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 659C667B2B0D020B00074930 /* Assets.xcassets */; };
@@ -61,6 +62,9 @@
 		652B2CBA2B512C87005EB8B0 /* PrivacyServicePopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyServicePopVC.swift; sourceTree = "<group>"; };
 		652ED9462B137AC300A112B3 /* FachaiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FachaiViewModel.swift; sourceTree = "<group>"; };
 		652ED94F2B14518100A112B3 /* LenchaiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenchaiViewModel.swift; sourceTree = "<group>"; };
+		658C729F2B591E5100CB729C /* QuanViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuanViewVC.swift; sourceTree = "<group>"; };
+		658C72A72B5A00D100CB729C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		658C72A82B5A00D100CB729C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		659C666F2B0D020A00074930 /* FachaiAB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FachaiAB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		659C66762B0D020A00074930 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		659C66792B0D020A00074930 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -185,6 +189,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		658C729E2B591E1500CB729C /* QuanView */ = {
+			isa = PBXGroup;
+			children = (
+				658C729F2B591E5100CB729C /* QuanViewVC.swift */,
+			);
+			path = QuanView;
+			sourceTree = "<group>";
+		};
 		659C66662B0D020A00074930 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +249,7 @@
 		659C668B2B0D024200074930 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				658C729E2B591E1500CB729C /* QuanView */,
 				659C668C2B0D024200074930 /* 我的 */,
 				659C66932B0D024200074930 /* 榜单 */,
 				659C66952B0D024200074930 /* 脸猜 */,
@@ -427,6 +440,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 659C66662B0D020A00074930;
 			packageReferences = (
@@ -511,6 +525,7 @@
 				65B6EC2C2B502D3300281046 /* NetWorkState.swift in Sources */,
 				659C66B62B0D024200074930 /* DataResultView.swift in Sources */,
 				65C389EA2B0DB8990046B460 /* LoginViewModel.swift in Sources */,
+				658C72A02B591E5100CB729C /* QuanViewVC.swift in Sources */,
 				652B2CBB2B512C87005EB8B0 /* PrivacyServicePopVC.swift in Sources */,
 				65C389F02B0EE0090046B460 /* MineViewModel.swift in Sources */,
 				652ED9472B137AC300A112B3 /* FachaiViewModel.swift in Sources */,
@@ -546,6 +561,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				659C66792B0D020A00074930 /* Base */,
+				658C72A72B5A00D100CB729C /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -554,6 +570,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				659C667E2B0D020B00074930 /* Base */,
+				658C72A82B5A00D100CB729C /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -566,6 +583,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -629,6 +647,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -716,7 +735,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -814,7 +833,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",

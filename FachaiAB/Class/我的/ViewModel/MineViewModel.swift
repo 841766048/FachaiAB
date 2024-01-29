@@ -18,6 +18,8 @@ struct MineModel: HandyJSON {
     var full: String = ""
     var tab: String = ""
     var rank: Int = 0
+    var quan: Int = 0
+    var find_url: String = ""
     var box: [BoxModel] = []
 }
 

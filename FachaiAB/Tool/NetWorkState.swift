@@ -2,7 +2,7 @@
 //  NetWorkState.swift
 //  FachaiAB
 //
-//  Created by 张海彬 on 2024/1/11.
+//  Created by   on 2024/1/11.
 //
 
 import Foundation
@@ -69,3 +69,4 @@ class NetWorkState {
     }
 
 }
+

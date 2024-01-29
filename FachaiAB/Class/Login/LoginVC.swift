@@ -246,6 +246,7 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
         baseUIConfigure.clNavigationBarStyle = NSNumber(integerLiteral: Int(UIBarStyle.black.rawValue))
         baseUIConfigure.clNavigationBackgroundClear = NSNumber(booleanLiteral: true)
         baseUIConfigure.clNavigationBottomLineHidden = NSNumber(booleanLiteral: true)
+        baseUIConfigure.clNavigationBackBtnHidden = NSNumber(booleanLiteral: true)
         baseUIConfigure.clNavigationBackBtnImage = UIImage(named: "back")!
         baseUIConfigure.clPhoneNumberColor = .white
         baseUIConfigure.clSloganTextHidden = NSNumber(booleanLiteral: true)
@@ -465,7 +466,7 @@ class LoginVC: BaseViewController, UITextFieldDelegate {
                     LocalStorage.saveFull(model.full)
                     LocalStorage.saveDefaultTab(Int(model.tab) ?? 0)
                 }
-                TabBarController.instance.tab = BaseTabBarController()
+//                TabBarController.instance.tab = BaseTabBarController()
                 let notification = Notification(name: .switchRootViewController)
                 NotificationCenter.default.post(notification)
 //                self.navigationController?.popViewController(animated: true)
