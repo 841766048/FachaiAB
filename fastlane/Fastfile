@@ -1,0 +1,88 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+api_KEY = app_store_connect_api_key(
+        # 通过苹果申请的key id，申请同时会生成issuer_id和一个授p8权文件，就是以下参数，文件只能下载一次，注意保存，申请方式https://appleid.apple.com/account/manage中的专用密钥
+    key_id: 'G7QW6BNC5H',
+    issuer_id: '7cc60398-de56-4006-b8ec-34eb0852fa1d',
+        # 授权文件路径
+    key_filepath: './fastlane/AuthKey_G7QW6BNC5H.p8',
+    duration: 1200,
+    in_house: false
+)
+
+
+platform :ios do
+    desc "Description of what the lane does"
+    lane :smartowon do
+    # add actions here: https://docs.fastlane.tools/actions
+    cocoapods
+gym(
+    # 每次打包之前clean一下
+    clean: true,
+    output_directory: './fastlane/release',
+    output_name: '测试打包.ipa',
+    scheme: "FachaiAB",
+    configuration: 'Release',
+    include_bitcode: false,
+    include_symbols: true,
+    export_method: 'app-store',
+    export_xcargs: '-allowProvisioningUpdates'
+)
+    # mac上的通知弹窗，通知打包完毕
+    notification(title: 'manager', subtitle: '打包成功，已导出安装包', message: '准备发布中……')
+    # 配置上传到App Store connect的api_key
+    # 通过这种设置可以绕过二次认证等验证操作，实现一键打包上传
+    api_key = api_KEY
+    # 上传到testflight
+    upload_to_testflight(
+        # 上边设置的授权信息
+    api_key: api_key,
+    skip_waiting_for_build_processing: true,
+        # 打包好要上传的文件
+    ipa: './fastlane/release/测试打包.ipa',
+    skip_submission: true
+    )
+    # 通知上传成功
+    notification(title:"LoanManager",subtitle: "IPA上传成功", message: "自动打包完成！")
+    end
+    end
+
+desc "下载所有需要的证书和描述文件到本地，不会重新创建证书和描述文件（只读方式）"
+lane :match_all do
+    # match(api_key: api_KEY, type: "development", readonly: true)
+    match(api_key: api_KEY, type: "adhoc", readonly: true)
+    match(api_key: api_KEY, type: "appstore", readonly: true)
+end
+
+desc "同步证书，如果证书过期或新增了设备，会重新创建证书和描述文件"
+desc "该方法仅限管理员使用，其他开发成员只需要使用 match_all 方法即可"
+  lane :force_match do
+    # match(api_key: api_key, type: "development", force_for_new_devices: true)
+    match(api_key: api_KEY, type: "adhoc", force_for_new_devices: true)
+    match(api_key: api_KEY, type: "appstore")
+end
+
+desc "注册设备，并更新描述文件"
+lane :sync_devices do
+    # devices.txt模板：
+    # http://devimages.apple.com/downloads/devices/Multiple-Upload-Samples.zip
+    register_devices(api_key: api_key, devices_file: "./devices.txt")
+    match(api_key: api_key, type: "development", force_for_new_devices: true)
+    match(api_key: api_key, type: "adhoc", force_for_new_devices: true)
+end
+

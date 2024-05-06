@@ -1,0 +1,19 @@
+git_url("git@gitee.com:Sesn/certificates.git")
+
+storage_mode("git") # 存储方式
+git_branch("master")  # git分支名称
+
+# 默认的Profile类型, 可以为: appstore, adhoc, enterprise or development
+type("development")
+
+# bundleId，可以填多个bundleId，如App内包含 extension
+app_identifier(["com.Matilda.FunGuessing3"])
+ENV["MATCH_PASSWORD"] = "abc123" # 导出和打开 .p12文件的密码
+
+username("zhang841766048@gmail.com") # Your Apple Developer Portal username
+ENV["FASTLANE_PASSWORD"] = "Yu-502049336"
+ENV['MATCH_KEYCHAIN_PASSWORD'] = 'Yu-502049336'
+# For all available options run `fastlane match --help`
+# Remove the # in the beginning of the line to enable the other options
+
+# The docs are available on https://docs.fastlane.tools/actions/match
